@@ -7,6 +7,16 @@
 * [💡 What we do](overview/what-we-do.md)
 * [✨ Our Features](overview/our-features.md)
 
+***
+
+* [SDKs](sdks/README.md)
+  * [JavaScript](sdks/javascript.md)
+  * [Swift](sdks/swift.md)
+  * [Rust](sdks/rust.md)
+  * [Go](sdks/go.md)
+  * [Java](sdks/java.md)
+  * [Python](sdks/python.md)
+
 ## Product Guides
 
 * [📪 Making a post](product-guides/making-a-post.md)
