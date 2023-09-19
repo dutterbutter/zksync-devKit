@@ -23,14 +23,19 @@
 * [Debug JSON-RPC API](api-reference/debug-json-rpc-api.md)
 * [PubSub JSON-RPC API](api-reference/pubsub-json-rpc-api.md)
 
-## 💾 External Node
+## ⚙ Infrastructure
 
-* [Getting Started](external-node/getting-started/README.md)
-  * [Component breakdown](external-node/getting-started/component-breakdown.md)
-* [Configuration](external-node/configuration.md)
-* [Running Node](external-node/running-node.md)
-* [Observability](external-node/observability.md)
-* [Troubleshooting](external-node/troubleshooting.md)
+* [External Node](infrastructure/external-node/README.md)
+  * [Component Breakdown](infrastructure/external-node/component-breakdown.md)
+  * [Configuration](infrastructure/external-node/configuration.md)
+  * [Running Node](infrastructure/external-node/running-node.md)
+  * [Observability](infrastructure/external-node/observability.md)
+  * [Troubleshooting](infrastructure/external-node/troubleshooting.md)
+* [zkSync Era](infrastructure/zksync-era/README.md)
+  * [Getting Started](infrastructure/zksync-era/getting-started.md)
+  * [Installation](infrastructure/zksync-era/installation.md)
+  * [Running Node](infrastructure/zksync-era/running-node.md)
+  * [Development](infrastructure/zksync-era/development.md)
 
 ## 🧪 Test & Debug
 
