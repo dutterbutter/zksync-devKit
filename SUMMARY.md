@@ -4,6 +4,7 @@
 
 ## 💻 SDKs
 
+* [Getting Started](sdks/getting-started.md)
 * [Javascript](sdks/javascript/README.md)
   * [Getting Started](sdks/javascript/getting-started.md)
   * [Core Concepts](sdks/javascript/core-concepts.md)
@@ -18,6 +19,7 @@
   * [Page 4](sdks/go/page-4.md)
 * [Java](sdks/java/README.md)
   * [Page 5](sdks/java/page-5.md)
+* [Swift](sdks/swift.md)
 
 ## 🌐 API Reference
 
@@ -29,17 +31,17 @@
 
 ## ⚙ Infrastructure
 
+* [zkSync Era](infrastructure/zksync-era/README.md)
+  * [Getting Started](infrastructure/zksync-era/getting-started.md)
+  * [Installation](infrastructure/zksync-era/installation.md)
+  * [Running Node](infrastructure/zksync-era/running-node.md)
+  * [Development](infrastructure/zksync-era/development.md)
 * [External Node](infrastructure/external-node/README.md)
   * [Component Breakdown](infrastructure/external-node/component-breakdown.md)
   * [Configuration](infrastructure/external-node/configuration.md)
   * [Running Node](infrastructure/external-node/running-node.md)
   * [Observability](infrastructure/external-node/observability.md)
   * [Troubleshooting](infrastructure/external-node/troubleshooting.md)
-* [zkSync Era](infrastructure/zksync-era/README.md)
-  * [Getting Started](infrastructure/zksync-era/getting-started.md)
-  * [Installation](infrastructure/zksync-era/installation.md)
-  * [Running Node](infrastructure/zksync-era/running-node.md)
-  * [Development](infrastructure/zksync-era/development.md)
 
 ## 🧪 Test & Debug
 
@@ -55,6 +57,7 @@
 
 * [Internal](tooling/internal/README.md)
   * [zksync-cli](tooling/internal/zksync-cli.md)
+  * [Block Explorer](tooling/internal/block-explorer.md)
 * [External](tooling/external/README.md)
   * [Getting Started](tooling/external/getting-started.md)
   * [Oracles](tooling/external/oracles/README.md)
@@ -71,8 +74,13 @@
 
 ## 🏗 Build
 
+* [Getting Started](build/getting-started.md)
 * [Smart Contracts](build/smart-contracts.md)
 * [Frontend Development](build/frontend-development.md)
+* [Show and Tell](build/show-and-tell/README.md)
+  * [DeFi](build/show-and-tell/defi.md)
+  * [Gaming](build/show-and-tell/gaming.md)
+  * [Wallets](build/show-and-tell/wallets.md)
 
 ## 🆘 Support
 
