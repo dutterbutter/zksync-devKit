@@ -5,7 +5,11 @@
 ## 💻 SDKs
 
 * [Javascript](sdks/javascript/README.md)
-  * [Page 1](sdks/javascript/page-1.md)
+  * [Getting Started](sdks/javascript/getting-started.md)
+  * [Core Concepts](sdks/javascript/core-concepts.md)
+  * [API Reference](sdks/javascript/api-reference/README.md)
+    * [Page 1](sdks/javascript/api-reference/page-1.md)
+    * [Provider](sdks/javascript/api-reference/provider.md)
 * [Python](sdks/python/README.md)
   * [Page 2](sdks/python/page-2.md)
 * [Rust](sdks/rust/README.md)
