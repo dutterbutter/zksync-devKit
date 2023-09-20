@@ -1,35 +1,11 @@
-# Provider
-
-## `Provider` Class
-
-#### Overview
-
-The `Provider` class in zkSync Era extends the functionalities of `ethers.providers.JsonRpcProvider`. It is designed to interact with zkSync-specific methods while retaining all features of the Ethers.js provider.
-
-#### `constructor` Method
-
-The constructor initializes a new `Provider` object.
-
-**Parameters**
-
-| Parameter  | Type                          | Description                | Example                            |
-| ---------- | ----------------------------- | -------------------------- | ---------------------------------- |
-| `url?`     | string or `ConnectionInfo`    | Network RPC URL (optional) | `"https://testnet.era.zksync.dev"` |
-| `network?` | `ethers.providers.Networkish` | Network name (optional)    | `"testnet"`                        |
-
-**Example Usage**
-
-{% code overflow="wrap" lineNumbers="true" %}
-```typescript
-import { Provider } from "zksync-web3";
-
-const provider = new Provider("https://testnet.era.zksync.dev");
-```
-{% endcode %}
+# Estimate Gas
 
 ### **Estimation Methods**
 
-The following methods are used for estimating gas on zkSync Era.
+The estimation methods in the zkSync Era JS SDK provide a way to estimate the gas required for various types of transactions. These methods return a `Promise` that resolves to a `BigNumber`, representing the estimated gas cost in `wei`.\
+
+
+At the bottom of this section you can see a working example using Stackblitz for each of the method operations.
 
 ### `estimateGas` Method
 
@@ -72,6 +48,7 @@ Here's how you can use `estimateGas` to estimate the gas for a deposit transacti
 {% code overflow="wrap" lineNumbers="true" %}
 ```typescript
 import { Provider } from "zksync-web3";
+import { utils } from "ethers";
 
 const provider = new Provider("https://testnet.era.zksync.dev");
 
@@ -83,7 +60,7 @@ const estimate = await provider.estimateGas({
   data: "0xd0e30db0",
 
   // 1 ether
-  value: parseEther("1.0")
+  value: utils.parseEther("1.0")
 });
 
 console.log(estimate);
@@ -213,8 +190,143 @@ const estimate = await provider.estimateGasTransfer(transaction);
 console.log(`Estimated gas for token transfer: ${estimate}`);
 ```
 
+### `estimateGasWithdraw` Method
 
+#### Overview
 
-\
+The `estimateGasWithdraw` method returns a `Promise` that resolves to a `BigNumber`, providing an estimate of the amount of gas required to execute a token withdrawal transaction.
 
+#### Method Signature
 
+```typescript
+provider.estimateGasWithdraw(transaction: {
+  token: Address;
+  amount: BigNumberish;
+  from?: Address;
+  to?: Address;
+  bridgeAddress?: Address;
+  overrides?: ethers.CallOverrides;
+}): Promise<BigNumber>
+```
+
+**Parameters**
+
+| Parameter     | Type     | Description                                                                                   |
+| ------------- | -------- | --------------------------------------------------------------------------------------------- |
+| `transaction` | `Object` | An object containing the details of the token withdrawal transaction you want to estimate for |
+
+**Transaction Object**
+
+| Property        | Type                              | Description                     | Example                    |
+| --------------- | --------------------------------- | ------------------------------- | -------------------------- |
+| `token`         | `Address`                         | The token's contract address    | `"0xTokenAddressHere"`     |
+| `amount`        | `BigNumberish`                    | The amount of token to withdraw | `1000`                     |
+| `from`          | `Address` (Optional)              | The sender's address            | `"0xSenderAddressHere"`    |
+| `to`            | `Address` (Optional)              | The recipient's address         | `"0xRecipientAddressHere"` |
+| `bridgeAddress` | `Address` (Optional)              | The bridge contract address     | `"0xBridgeAddressHere"`    |
+| `overrides`     | `ethers.CallOverrides` (Optional) | Ethers call overrides object    | `{ gasLimit: 21000 }`      |
+
+#### Return Value
+
+Returns a `Promise` that resolves to a `BigNumber` representing the estimated gas cost for the token withdrawal transaction.
+
+#### Example Usage
+
+Here's how you can use `estimateGasWithdraw` to estimate the gas for a token withdrawal transaction:
+
+```typescript
+import { Provider } from "zksync-web3";
+import { BigNumber } from "ethers";
+
+// Initialize a new Provider instance
+const provider = new Provider("https://testnet.era.zksync.dev");
+
+// Define the transaction details
+const transaction = {
+  token: "0xTokenAddressHere",
+  amount: BigNumber.from("1000"),
+  from: "0xSenderAddressHere",
+  to: "0xRecipientAddressHere",
+  bridgeAddress: "0xBridgeAddressHere",
+  overrides: { gasLimit: 21000 }
+};
+
+// Estimate the gas
+const estimate = await provider.estimateGasWithdraw(transaction);
+
+// Log the estimated gas
+console.log(`Estimated gas for token withdrawal: ${estimate}`);
+```
+
+### `estimateL1ToL2Execute` Method
+
+#### Overview
+
+The `estimateL1ToL2Execute` method returns a `Promise` that resolves to a `BigNumber`, providing an estimate of the amount of gas required to execute an L1 to L2 operation.
+
+#### Method Signature
+
+```typescript
+provider.estimateL1ToL2Execute(transaction: {
+  contractAddress: Address;
+  calldata: BytesLike;
+  caller?: Address;
+  l2Value?: BigNumberish;
+  factoryDeps?: ethers.BytesLike[];
+  gasPerPubdataByte?: BigNumberish;
+  overrides?: ethers.PayableOverrides;
+}): Promise<BigNumber>
+```
+
+**Parameters**
+
+| Parameter     | Type     | Description                                                                         |
+| ------------- | -------- | ----------------------------------------------------------------------------------- |
+| `transaction` | `Object` | An object containing the details of the L1 to L2 operation you want to estimate for |
+
+**Transaction Object**
+
+| Property            | Type                                 | Description                                          | Example                          |
+| ------------------- | ------------------------------------ | ---------------------------------------------------- | -------------------------------- |
+| `contractAddress`   | `Address`                            | The contract's address                               | `"0xContractAddressHere"`        |
+| `calldata`          | `BytesLike`                          | The transaction call data                            | `"0xSomeCallDataHere"`           |
+| `caller`            | `Address` (Optional)                 | The caller's address                                 | `"0xCallerAddressHere"`          |
+| `l2Value`           | `BigNumberish` (Optional)            | Current L2 gas value                                 | `1000`                           |
+| `factoryDeps`       | `ethers.BytesLike[]` (Optional)      | Byte array containing contract bytecode              | `["0xByteCode1", "0xByteCode2"]` |
+| `gasPerPubdataByte` | `BigNumberish` (Optional)            | Constant representing current amount of gas per byte | `100`                            |
+| `overrides`         | `ethers.PayableOverrides` (Optional) | Ethers payable overrides object                      | `{ gasLimit: 21000 }`            |
+
+#### Return Value
+
+Returns a `Promise` that resolves to a `BigNumber` representing the estimated gas cost for the L1 to L2 operation.
+
+#### Example Usage
+
+Here's how you can use `estimateL1ToL2Execute` to estimate the gas for an L1 to L2 operation:
+
+```typescript
+typescriptCopy codeimport { Provider } from "zksync-web3";
+import { BigNumber } from "ethers";
+
+// Initialize a new Provider instance
+const provider = new Provider("https://testnet.era.zksync.dev");
+
+// Define the transaction details
+const transaction = {
+  contractAddress: "0xContractAddressHere",
+  calldata: "0xSomeCallDataHere",
+  caller: "0xCallerAddressHere",
+  l2Value: BigNumber.from("1000"),
+  factoryDeps: ["0xByteCode1", "0xByteCode2"],
+  gasPerPubdataByte: BigNumber.from("100"),
+  overrides: { gasLimit: 21000 }
+};
+
+// Estimate the gas
+const estimate = await provider.estimateL1ToL2Execute(transaction);
+
+// Log the estimated gas
+console.log(`Estimated gas for L1 to L2 operation: ${estimate}`);
+```
+
+#### Try out gas estimation!
