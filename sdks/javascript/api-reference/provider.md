@@ -84,7 +84,7 @@ provider.estimateGas(transaction: TransactionRequest): Promise<BigNumber>
 
 Returns a `Promise` that resolves to a `BigNumber` representing the estimated gas cost.
 
-#### Example Usage
+#### Example Usage&#x20;
 
 Here's how you can use `estimateGas` to estimate the gas for a deposit transaction:
 
@@ -108,3 +108,7 @@ const estimate = await provider.estimateGas({
 console.log(estimate);
 ```
 {% endcode %}
+
+#### Try it out!
+
+{% embed url="https://stackblitz.com/edit/typescript-m4nvot?file=index.ts" %}
