@@ -1,9 +1,8 @@
 # Estimate Gas
 
-### **Estimation Methods**
+### Estimation Methods&#x20;
 
-The estimation methods in the zkSync Era JS SDK provide a way to estimate the gas required for various types of transactions. These methods return a `Promise` that resolves to a `BigNumber`, representing the estimated gas cost in `wei`.\
-
+The estimation methods in the zkSync Era JS SDK provide a way to estimate the gas required for various types of transactions. These methods return a Promise that resolves to a BigNumber, representing the estimated gas cost in wei.
 
 At the bottom of this section you can see a working example using Stackblitz for each of the method operations.
 
@@ -20,7 +19,7 @@ Keep in mind that the estimate may not be entirely accurate. Network conditions,
 #### Method Signature
 
 ```typescript
-provider.estimateGas(transaction: TransactionRequest): Promise<BigNumber>
+estimateGas(transaction: TransactionRequest): Promise<BigNumber>
 ```
 
 **Parameters**
