@@ -8,18 +8,17 @@ description: Guide to Building an Allow List Paymaster on zkSync Era
 
 zkSync offers native account abstraction enabling contracts to pay transaction fees on behalf of users. The **AllowlistPaymaster** contract is one such way to utilize this, paying fees for a specified list of approved users, hence enhancing user experience by alleviating gas cost concerns.
 
-This guide will outline the process of creating an AllowlistPaymaster contract to cover the gas fees of certain users. It provides an overview of the smart contract provided, and the steps required to deploy and operate it.&#x20;
+This guide will outline the process of creating an AllowlistPaymaster contract to cover the gas fees of certain users. It provides an overview of the smart contract developed, and the steps required to deploy and operate it.&#x20;
 
 {% hint style="info" %}
-For detailed explanations of the IPaymaster interface please refer to the documentation here.
+For detailed explanations of the IPaymaster interface please refer to the documentation [here](https://era.zksync.io/docs/reference/concepts/account-abstraction.html#ipaymaster-interface).
 {% endhint %}
 
 ### Prerequisites
 
-* Familiarity with Solidity, and Hardhat.
-* A development environment for contract development like Atlas, or Hardhat.
-* MetaMask with a balance on zkSync testnet.
-* The guide make use of `zksync-cli`.
+* **Knowledge Base**: You should be familiar with Solidity and Hardhat.
+* **Wallet Setup**: Have MetaMask installed and set up, ensuring there's a balance on the zkSync testnet.&#x20;
+* **Tooling**: This guide utilizes [`zksync-cli`](../../../tooling/zksync-cli.md). Ensure you have it accessible or installed in your environment.
 
 ### Step 1 — Understanding the AllowlistPaymaster Contract
 
@@ -31,7 +30,7 @@ Key components:
 * **validateAndPayForPaymasterTransaction**: The validation logic that checks if a given address is on the allow list.&#x20;
 * **setBatchAllowance**: Allows the owner to update the allowList in batches for efficiency.
 
-Each paymaster should implement the [IPaymaster](https://github.com/matter-labs/v2-testnet-contracts/blob/main/l2/system-contracts/interfaces/IPaymaster.sol) interface. We will be using `zksync-cli` to bootstrap the boilerplate code for this paymaster.&#x20;
+Each paymaster should implement the [IPaymaster](https://github.com/matter-labs/v2-testnet-contracts/blob/main/l2/system-contracts/interfaces/IPaymaster.sol) interface. We will be using `zksync-cli` to bootstrap the boilerplate code for this paymaster.
 
 ### Step 2 — Environment setup
 
@@ -111,11 +110,81 @@ The contract checks if the number of addresses in `_targets` matches the number 
 
 ### Step 4 — Deploy the contract
 
-To deploy the contract&#x20;
+Create a new file under `/deploy`, for example `deploy-allowListPaymaster.ts`. Insert the provided script:
 
-* Using your development environment, compile the `AllowlistPaymaster` contract.
-* Deploy the compiled contract to the Ethereum network using your chosen wallet.
-* Confirm the deployment and record the contract address.
+<details>
+
+<summary>Deployment script</summary>
+
+```typescript
+import { Provider, Wallet } from "zksync-web3";
+import * as ethers from "ethers";
+import { HardhatRuntimeEnvironment } from "hardhat/types";
+import { Deployer } from "@matterlabs/hardhat-zksync-deploy";
+
+// load env file
+import dotenv from "dotenv";
+dotenv.config();
+
+// load wallet private key from env file
+const PRIVATE_KEY = process.env.WALLET_PRIVATE_KEY || "";
+
+if (!PRIVATE_KEY)
+  throw "⛔️ Private key not detected! Add it to the .env file!";
+
+export default async function (hre: HardhatRuntimeEnvironment) {
+  console.log(`Running deploy script for the AllowlistPaymaster contract...`);
+  const provider = new Provider("https://testnet.era.zksync.dev");
+
+  // The wallet that will deploy the token and the paymaster
+  // It is assumed that this wallet already has sufficient funds on zkSync
+  const wallet = new Wallet(PRIVATE_KEY);
+  const deployer = new Deployer(hre, wallet);
+
+  // Deploying the paymaster
+  const paymasterArtifact = await deployer.loadArtifact("AllowlistPaymaster");
+  const deploymentFee = await deployer.estimateDeployFee(paymasterArtifact, []);
+  const parsedFee = ethers.utils.formatEther(deploymentFee.toString());
+  console.log(`The deployment is estimated to cost ${parsedFee} ETH`);
+  // Deploy the contract
+  const paymaster = await deployer.deploy(paymasterArtifact, []);
+  console.log(`Paymaster address: ${paymaster.address}`);
+  console.log(`Contract owner added to allow list: ${wallet.address}`);
+
+  console.log("Funding paymaster with ETH");
+  // Supplying paymaster with ETH
+  await (
+    await deployer.zkWallet.sendTransaction({
+      to: paymaster.address,
+      value: ethers.utils.parseEther("0.005"),
+    })
+  ).wait();
+
+  let paymasterBalance = await provider.getBalance(paymaster.address);
+  console.log(`Paymaster ETH balance is now ${paymasterBalance.toString()}`);
+  console.log(`Done!`);
+}
+```
+
+</details>
+
+{% hint style="info" %}
+Be sure to add your private key to the `.env` file.&#x20;
+{% endhint %}
+
+The provided script takes care of loading environment variables, setting up a deployment wallet with the private key specified in an `.env` file, contract deployment and funding the paymaster. You can adjust the amount of ETH to fund the paymaster to your needs.&#x20;
+
+Compile the contract:
+
+```bash
+yarn hardhat compile
+```
+
+Once compiled, deploy using:
+
+```bash
+yarn hardhat deploy-zksync --script allowListPaymaster.ts
+```
 
 ### Step 5 — Managing the Allowlist
 
