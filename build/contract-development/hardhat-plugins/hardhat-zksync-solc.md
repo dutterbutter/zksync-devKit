@@ -1,54 +1,83 @@
 # hardhat-zksync-solc
 
-## `hardhat-zksync-solc`
+### **What is this Plugin?**
 
-This plugin is used to provide a convenient interface for compiling Solidity smart contracts before deploying them to zkSync Era.
+The [`hardhat-zksync-solc`](https://www.npmjs.com/package/@matterlabs/hardhat-zksync-solc) plugin provides an interface for compiling Solidity smart contracts for deployment on the zkSync Era.
 
-Learn more about the latest updates in the [changelog](https://github.com/matter-labs/hardhat-zksync/blob/main/packages/hardhat-zksync-solc/CHANGELOG.md)
+{% hint style="info" %}
+To gain an understanding **why** solc plugin is needed for zkSync compilation please refer to the documentation [here](https://era.zksync.io/docs/tools/compiler-toolchain/overview.html).
+{% endhint %}
 
-### Installation
+### **Installation**
 
-[@matterlabs/hardhat-zksync-solc](https://www.npmjs.com/package/@matterlabs/hardhat-zksync-solc)
+Add the latest version of the plugin to your project:
 
-Add the latest version of this plugin to your project with the following command:
-
-::: code-tabs
-
-@tab:active yarn
-
+{% tabs %}
+{% tab title="yarn" %}
 ```bash
 yarn add -D @matterlabs/hardhat-zksync-solc
 ```
+{% endtab %}
 
-@tab npm
-
+{% tab title="npm" %}
 ```bash
 npm i -D @matterlabs/hardhat-zksync-solc
 ```
-
-:::
+{% endtab %}
+{% endtabs %}
 
 ### Configuration
 
-Import the package in the `hardhat.config.ts` file:
+Import the package in your `hardhat.config.ts`:
 
-```ts
+```typescript
 import "@matterlabs/hardhat-zksync-solc";
 ```
 
-::: info Default config in hardhat-zksync-solc ^0.4.0
+**Default configuration**&#x20;
 
-Version 0.4.0 introduced a default configuration making all parameters optional. You can override the default configuration in the `hardhat.config.ts` file.
+From version `0.4.0` onwards, a default configuration has been introduced, making all parameters optional. Override default configurations by modifying values inside the `hardhat.config.ts` file.
 
-:::
+<details>
 
-::: info Support for missing libraries in hardhat-zksync-solc ^0.4.2
+<summary>Minimal config with default configuration</summary>
 
-Version 0.4.2 introduced a mode that detects non-inlinable libraries that are missing and that are required for the compilation of contracts. This feature works with the `hardhat-zksync-deploy` plugin, specifically the `deploy-zksync:libraries` task, to compile and deploy the missing libraries. There are no new commands, just follow the instructions logged by the `yarn hardhat compile` output.
+```typescript
+import { HardhatUserConfig } from "hardhat/config";
 
-:::
+import "@matterlabs/hardhat-zksync-deploy";
+import "@matterlabs/hardhat-zksync-solc";
 
-Any configuration parameters should be added inside a `zksolc` property in the `hardhat.config.ts` file:
+const config: HardhatUserConfig = {
+  zksolc: {},
+  defaultNetwork: "zkSyncTestnet",
+  networks: {
+    hardhat: {
+      zksync: false,
+    },
+    zkSyncTestnet: {
+      url: "http://localhost:3050",
+      ethNetwork: "http://localhost:8545",
+      zksync: true,
+    };
+  },
+  solidity: {
+    version: "0.8.20",
+  },
+};
+
+export default config;
+```
+
+</details>
+
+#### Advanced configuration
+
+Inside the `hardhat.config.ts` file, add configuration parameters within a `zksolc` property.
+
+<details>
+
+<summary>Example advanced config</summary>
 
 ```typescript
 zksolc: {
@@ -63,46 +92,35 @@ zksolc: {
         enabled: true, // optional. True by default
         mode: '3' // optional. 3 by default, z to optimize bytecode size
       },
-      experimental: {
-        dockerImage: '', // deprecated
-        tag: ''   // deprecated
-      },
     }
 },
 
 ```
 
-::: warning
+</details>
 
-* Compilers are no longer released as Docker images and its usage is no longer recommended.
+Configuration options and their details:
 
-:::
-
-* `version` is the `zksolc` compiler version. Compiler versions can be found in [the following repository](https://github.com/matter-labs/zksolc-bin).
-* `compilerSource` indicates the compiler source and can be either `binary` (default) or `docker` (deprecated). If there isn't a compiler binary already installed, the plugin will automatically download it.
-* `compilerPath` (optional) is a field with the path to the `zksolc` binary. By default, the binary in `$PATH` is used.
-* `libraries` if your contract uses non-inlinable libraries as dependencies, they have to be defined here. Learn more about compiling libraries here
-* `missingLibrariesPath` (optional) serves as a cache that stores all the libraries that are missing or have dependencies on other libraries. A `hardhat-zksync-deploy` plugin uses this cache later to compile and deploy the libraries, especially when the `deploy-zksync:libraries` task is executed. Defaults to `./.zksolc-libraries-cache/missingLibraryDependencies.json`.
-* `isSystem` - required if contracts use enables Yul instructions available only for zkSync system contracts and libraries
-* `forceEvmla` - falls back to EVM legacy assembly if there is an issue with the Yul IR compilation pipeline.
-* `optimizer` - Compiler optimizations:
-  * `enabled`: `true` (default) or `false`.
-  * `mode`: `3` (default) recommended for most projects. Mode `z` reduces bytecode size for large projects that make heavy use of `keccak` and far calls.
+* `version`: Specifies the zksolc compiler version. [View available versions](https://chat.openai.com/c/bbd6cd82-dec2-4f11-9e2d-3a2fd63b2f0b).
+* `compilerSource`: Choose between binary (default) and docker (deprecated).
+* `libraries`: Define any non-inlinable libraries used by your contract. [Learn more](https://chat.openai.com/c/bbd6cd82-dec2-4f11-9e2d-3a2fd63b2f0b).
+* `missingLibrariesPath`: Cache for missing libraries and dependencies.
+* `isSystem`: For contracts utilizing zkSync-specific Yul instructions.
+* `forceEvmla`: Use EVM legacy assembly if there are Yul IR issues.
+* `optimizer`: Compiler optimization settings.
 * `metadata`: Metadata settings. If the option is omitted, the metadata hash appends by default:
   * `bytecodeHash`: Can only be `none`. It removes metadata hash from the bytecode.
-* `dockerImage` and `tag` are deprecated options used to identify the name of the compiler docker image.
 
-::: warning `forceEvmla` usage
+{% hint style="danger" %}
+**`forceEvmla`**
 
-Setting the `forceEvmla` field to true can have the following negative impacts:
+Setting the `forceEvmla` field to `true` can have the following negative impacts:
 
 * No support for recursion.
 * No support for internal function pointers.
 * Possible contract size and performance impact.
-
-For Solidity versions older than 0.8, only this compilation mode is available and it is used by default.
-
-:::
+* For Solidity <0.8, it's the default and only mode.
+{% endhint %}
 
 #### Network configuration
 
@@ -123,41 +141,32 @@ networks: {
 },
 ```
 
-* `zksync` network option indicates whether zksolc is enabled on a certain network. `false` by default. Useful for multichain projects in which you can enable `zksync` only for specific networks.
+The `zksync`network option determines if the `zksolc` compiler is active for a particular network. It is set to `false` by default. This option is especially beneficial for multi-chain projects, allowing you to selectively enable `zksync` for specific networks.
 
-### Commands
+### Usage
 
-::: code-tabs
-
-@tab:active yarn
-
+{% tabs %}
+{% tab title="yarn" %}
 ```bash
 yarn hardhat compile
 ```
+{% endtab %}
 
-@tab npm
-
+{% tab title="npm" %}
 ```bash
 npx hardhat compile
 ```
-
-:::
+{% endtab %}
+{% endtabs %}
 
 Compiles all the smart contracts in the `contracts` directory and creates the `artifacts-zk` folder with all the compilation artifacts, including factory dependencies for the contracts, which could be used for contract deployment.
 
-To understand what the factory dependencies are, read more about them in the Web3 API documentation.
+### **Troubleshooting**
 
-### Troubleshoting
-
-**Error in plugin @matterlabs/hardhat-zksync-solc: Invalid zksolc compiler version**
-
-This error is returned when the version defined in the `hardhat.config.ts` file is lower than the minimal required (versions are defined [here](https://github.com/matter-labs/zksolc-bin/blob/main/version.json)). Update the version to solve the issue.
-
-**Why is there an `unexpected end of JSON input` compilation error?**
-
-This is an error that is usually thrown when compiling a large smart contract codebase.
-
-If you encounter such an error, please do the following:
-
-* Update the `@matterlabs/hardhat-zksync-solc` library and try to re-compile the smart contracts afterwards.
-* If after the recompilation you get the `Library not found` error, then you should follow the instructions from here.
+* **Issue**: Error from `@matterlabs/hardhat-zksync-solc`: Invalid zksolc compiler version.
+  * **Solution**: Check the version in `hardhat.config.ts` isn't below minimum. [Check versions](https://github.com/matter-labs/zksolc-bin/blob/main/version.json).
+* **Issue**: Unexpected end of JSON input during compilation.
+  * **Solution**:
+    1. Update `@matterlabs/hardhat-zksync-solc`.
+    2. Recompile.
+    3. If "Library not found" error appears,[ ](https://era.zksync.io/docs/tools/hardhat/compiling-libraries.html)[follow these instructions.](https://era.zksync.io/docs/tools/hardhat/compiling-libraries.html)
