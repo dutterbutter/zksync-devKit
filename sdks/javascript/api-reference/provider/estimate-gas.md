@@ -42,7 +42,73 @@ Returns a `Promise` that resolves to a `BigNumber` representing the estimated ga
 
 #### Example Usage&#x20;
 
-Here's how you can use `estimateGas` to estimate the gas for a deposit transaction:
+Here's how you can use `estimateGas` to estimate the gas for a deposit transaction:\`
+
+{% tabs %}
+{% tab title="JS" %}
+{% code overflow="wrap" lineNumbers="true" %}
+```typescript
+import { Provider } from "zksync-web3";
+import { utils } from "ethers";
+
+const provider = new Provider("https://testnet.era.zksync.dev");
+
+const estimate = await provider.estimateGas({
+  // Wrapped ETH address
+  to: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+
+  // `function deposit() payable`
+  data: "0xd0e30db0",
+
+  // 1 ether
+  value: utils.parseEther("1.0")
+});
+
+console.log(estimate);
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="Go" %}
+{% code overflow="wrap" lineNumbers="true" %}
+```go
+gas, err := client.EstimateGas(context.Background(), ethereum.CallMsg{
+	From: wallet.Address(),
+	To:   ReceiptAddress,
+	Data: calldata,
+})
+if err != nil {
+  log.Panic(err)
+}
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="Python" %}
+{% code overflow="wrap" lineNumbers="true" %}
+```typescript
+web3.eth.estimate_gas({'to': '0xd3CdA913deB6f67967B99D67aCDFa1712C293601', 'from':web3.eth.coinbase, 'value': 12345})
+21000
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="Swift" %}
+```
+// Some code
+```
+{% endtab %}
+
+{% tab title="Java" %}
+
+{% endtab %}
+
+{% tab title="Rust" %}
+
+{% endtab %}
+{% endtabs %}
+
+
 
 {% code overflow="wrap" lineNumbers="true" %}
 ```typescript
