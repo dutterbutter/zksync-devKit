@@ -1,5 +1,5 @@
 ---
-description: Guide to Building an Allow List Paymaster on zkSync Era
+description: Guide to building an AllowList Paymaster on zkSync Era
 ---
 
 # AllowList

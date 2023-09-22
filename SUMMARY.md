@@ -65,6 +65,8 @@
 
 * [Getting Started](tooling/getting-started.md)
 * [zksync-cli](tooling/zksync-cli.md)
+* [Portal](tooling/portal.md)
+* [Bridge](tooling/bridge.md)
 * [Block Explorer](tooling/block-explorer.md)
 * [Oracles](tooling/oracles/README.md)
   * [API3](tooling/oracles/api3.md)
