@@ -20,7 +20,7 @@ For detailed explanations of the IPaymaster interface please refer to the docume
 * **Wallet Setup**: Have MetaMask installed and set up, ensuring there's a balance on the zkSync testnet.&#x20;
 * **Tooling**: This guide utilizes [`zksync-cli`](../../../tooling/zksync-cli.md). Ensure you have it accessible or installed in your environment.
 
-### Step 1 — Understanding the AllowlistPaymaster Contract
+### Step 1 — Understanding the AllowlistPaymaster contract
 
 The `AllowlistPaymaster` contract is designed to be owned by an account that controls its operations. It maintains a list of addresses which are allowed to have their gas fees paid for by this contract.&#x20;
 
@@ -41,7 +41,7 @@ Using `zksync-cli` we will create a new project with the required dependencies a
 
 Choose `Hardhat + Solidity` to setup our project repository. The contract we will be adjusting exists under `/contracts/GeneralPaymaster.sol`.&#x20;
 
-### Step 3 — Updating the Contract
+### Step 3 — Updating the contract
 
 Using the `GeneralPaymaster.sol` contract, add the `allowList` mapping and event emit line to the contract:
 

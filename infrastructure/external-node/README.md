@@ -9,7 +9,7 @@ description: >-
 {% hint style="danger" %}
 **Disclaimers**
 
-* The external node is in its alpha phase and should be used with caution.
+* The external node is in its **alpha** phase and should be used with caution.
 * During its alpha phase, the EN depends on a DB snapshot, which is not publicly available.
 * The EN is a read-only replica of the main node. We're in the process of decentralizing our infrastructure with the introduction of a consensus node. However, note that the EN is _not_ the consensus node.
 {% endhint %}
