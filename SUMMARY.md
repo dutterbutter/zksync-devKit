@@ -34,53 +34,6 @@
 * [Debug JSON-RPC API](api-reference/debug-json-rpc-api.md)
 * [PubSub JSON-RPC API](api-reference/pubsub-json-rpc-api.md)
 
-## ⚙ Infrastructure
-
-* [zkSync Era](infrastructure/zksync-era/README.md)
-  * [Getting Started](infrastructure/zksync-era/getting-started.md)
-  * [Installation](infrastructure/zksync-era/installation.md)
-  * [Running Node](infrastructure/zksync-era/running-node.md)
-  * [Development](infrastructure/zksync-era/development.md)
-* [External Node (EN)](infrastructure/external-node/README.md)
-  * [API Overview](infrastructure/external-node-en/api-overview.md)
-  * [Component Breakdown](infrastructure/external-node/component-breakdown.md)
-  * [Configuration](infrastructure/external-node/configuration.md)
-  * [Running Node](infrastructure/external-node/running-node.md)
-  * [Observability](infrastructure/external-node/observability.md)
-  * [Troubleshooting](infrastructure/external-node/troubleshooting.md)
-
-## 🧪 Test & Debug
-
-* [Getting Started](test-and-debug/getting-started.md)
-* [Dockerized Setup](test-and-debug/dockerized-setup.md)
-* [Era Test Node](test-and-debug/era-test-node.md)
-* [Hardhat](test-and-debug/hardhat.md)
-* [Foundry](test-and-debug/foundry.md)
-* [CI/CD](test-and-debug/ci-cd.md)
-* [Testing Examples](test-and-debug/testing-examples/README.md)
-  * [Time Change](test-and-debug/testing-examples/time-change.md)
-  * [Upgradable contracts](test-and-debug/testing-examples/upgradable-contracts.md)
-
-## 🛠 Tooling
-
-* [Getting Started](tooling/getting-started.md)
-* [zksync-cli](tooling/zksync-cli.md)
-* [Portal](tooling/portal.md)
-* [Bridge](tooling/bridge.md)
-* [Block Explorer](tooling/block-explorer.md)
-* [Oracles](tooling/oracles/README.md)
-  * [API3](tooling/oracles/api3.md)
-  * [Redstone](tooling/oracles/redstone.md)
-* [Analytics](tooling/analytics/README.md)
-  * [TheGraph](tooling/analytics/thegraph.md)
-  * [ZettaBlock](tooling/analytics/zettablock.md)
-  * [Dune](tooling/analytics/dune.md)
-* [IDE](tooling/ide/README.md)
-  * [Atlas](tooling/ide/atlas.md)
-* [Node Providers](tooling/node-providers/README.md)
-  * [Ankr](tooling/node-providers/ankr.md)
-  * [Chainstack](tooling/node-providers/chainstack.md)
-
 ## 🏗 Build
 
 * [Getting Started](build/getting-started.md)
@@ -123,6 +76,53 @@
   * [DeFi](build/show-and-tell/defi.md)
   * [Gaming](build/show-and-tell/gaming.md)
   * [Wallets](build/show-and-tell/wallets.md)
+
+## 🧪 Test & Debug
+
+* [Getting Started](test-and-debug/getting-started.md)
+* [Dockerized Setup](test-and-debug/dockerized-setup.md)
+* [Era Test Node](test-and-debug/era-test-node.md)
+* [Hardhat](test-and-debug/hardhat.md)
+* [Foundry](test-and-debug/foundry.md)
+* [CI/CD](test-and-debug/ci-cd.md)
+* [Testing Examples](test-and-debug/testing-examples/README.md)
+  * [Time Change](test-and-debug/testing-examples/time-change.md)
+  * [Upgradable contracts](test-and-debug/testing-examples/upgradable-contracts.md)
+
+## 🛠 Tooling
+
+* [Getting Started](tooling/getting-started.md)
+* [zksync-cli](tooling/zksync-cli.md)
+* [Portal](tooling/portal.md)
+* [Bridge](tooling/bridge.md)
+* [Block Explorer](tooling/block-explorer.md)
+* [Oracles](tooling/oracles/README.md)
+  * [API3](tooling/oracles/api3.md)
+  * [Redstone](tooling/oracles/redstone.md)
+* [Analytics](tooling/analytics/README.md)
+  * [TheGraph](tooling/analytics/thegraph.md)
+  * [ZettaBlock](tooling/analytics/zettablock.md)
+  * [Dune](tooling/analytics/dune.md)
+* [IDE](tooling/ide/README.md)
+  * [Atlas](tooling/ide/atlas.md)
+* [Node Providers](tooling/node-providers/README.md)
+  * [Ankr](tooling/node-providers/ankr.md)
+  * [Chainstack](tooling/node-providers/chainstack.md)
+
+## ⚙ Infrastructure
+
+* [zkSync Era](infrastructure/zksync-era/README.md)
+  * [Getting Started](infrastructure/zksync-era/getting-started.md)
+  * [Installation](infrastructure/zksync-era/installation.md)
+  * [Running Node](infrastructure/zksync-era/running-node.md)
+  * [Development](infrastructure/zksync-era/development.md)
+* [External Node (EN)](infrastructure/external-node/README.md)
+  * [API Overview](infrastructure/external-node-en/api-overview.md)
+  * [Component Breakdown](infrastructure/external-node/component-breakdown.md)
+  * [Configuration](infrastructure/external-node/configuration.md)
+  * [Running Node](infrastructure/external-node/running-node.md)
+  * [Observability](infrastructure/external-node/observability.md)
+  * [Troubleshooting](infrastructure/external-node/troubleshooting.md)
 
 ## 🆘 Support
 

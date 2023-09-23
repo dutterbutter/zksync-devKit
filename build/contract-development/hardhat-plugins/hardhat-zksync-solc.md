@@ -1,6 +1,6 @@
 # hardhat-zksync-solc
 
-### **What is this Plugin?**
+### **What is this** `hardhat-zksync-solc`**?**
 
 The [`hardhat-zksync-solc`](https://www.npmjs.com/package/@matterlabs/hardhat-zksync-solc) plugin provides an interface for compiling Solidity smart contracts for deployment on the zkSync Era.
 
@@ -79,9 +79,14 @@ Inside the `hardhat.config.ts` file, add configuration parameters within a `zkso
 
 <summary>Example advanced config</summary>
 
-```typescript
-zksolc: {
-    version: "latest", // optional.
+<pre class="language-typescript"><code class="lang-typescript">import { HardhatUserConfig } from "hardhat/config";
+
+import "@matterlabs/hardhat-zksync-deploy";
+import "@matterlabs/hardhat-zksync-solc";
+
+const config: HardhatUserConfig = {
+<strong>zksolc: {
+</strong>    version: "latest", // optional.
     settings: {
       compilerPath: "zksolc",  // optional. Ignored for compilerSource "docker". Can be used if compiler is located in a specific folder
       libraries:{}, // optional. References to non-inlinable libraries
@@ -94,8 +99,23 @@ zksolc: {
       },
     }
 },
+  networks: {
+    hardhat: {
+      zksync: false,
+    },
+    zkSyncTestnet: {
+      url: "http://localhost:3050",
+      ethNetwork: "http://localhost:8545",
+      zksync: true,
+    };
+  },
+  solidity: {
+    version: "0.8.20",
+  },
+};
 
-```
+export default config;
+</code></pre>
 
 </details>
 

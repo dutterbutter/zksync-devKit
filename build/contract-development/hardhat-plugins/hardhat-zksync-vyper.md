@@ -1,43 +1,88 @@
 # hardhat-zksync-vyper
 
-## `hardhat-zksync-vyper`
+### **What is this** `hardhat-zksync-vyper`**?**
 
-The [@matterlabs/hardhat-zksync-vyper](https://www.npmjs.com/package/@matterlabs/hardhat-zksync-vyper) plugin provides an interface for compiling Vyper smart contracts before deploying them to zkSync Era.
+The [`hardhat-zksync-vyper`](https://www.npmjs.com/package/@matterlabs/hardhat-zksync-vyper) plugin provides an interface for compiling Vyper smart contracts for deployment on the zkSync Era.
 
-Learn more about the latest updates in the [changelog](https://github.com/matter-labs/hardhat-zksync/blob/main/packages/hardhat-zksync-vyper/CHANGELOG.md).
+{% hint style="info" %}
+To gain an understanding **why** vyper plugin is needed for zkSync compilation please refer to the documentation [here](https://era.zksync.io/docs/tools/compiler-toolchain/overview.html).
+{% endhint %}
 
-### Set up
+### **Installation**
 
-#### 1. Scaffold a new project
+Add the latest version of the plugin to your project:
 
-Use the zkSync Era cli to set up a project.
-
-```sh
-npx zksync-cli@latest create-project greeter-vyper-example
-cd greeter-vyper-example
-```
-
-#### 2. Install the libraries
-
-The plugin is used with [@nomiclabs/hardhat-vyper](https://www.npmjs.com/package/@nomiclabs/hardhat-vyper).
-
-::: code-tabs @tab:active yarn
-
+{% tabs %}
+{% tab title="yarn" %}
 ```bash
 yarn add -D @matterlabs/hardhat-zksync-vyper @nomiclabs/hardhat-vyper
 ```
+{% endtab %}
 
-@tab npm
-
+{% tab title="npm" %}
 ```bash
 npm i -D @matterlabs/hardhat-zksync-vyper @nomiclabs/hardhat-vyper
 ```
+{% endtab %}
+{% endtabs %}
 
-:::
+### Configuration
 
-#### 3. Update the `hardhat.config.ts` file
+Import the package in your `hardhat.config.ts`:
 
-```ts
+```typescript
+import "@matterlabs/hardhat-zksync-vyper";
+import "@nomiclabs/hardhat-vyper";
+```
+
+**Default configuration**&#x20;
+
+From version `v0.2.0` onwards, a default configuration has been introduced, making all parameters optional. Override default configurations by modifying values inside the `hardhat.config.ts` file.
+
+<details>
+
+<summary>Minimal config with default configuration</summary>
+
+```typescript
+import { HardhatUserConfig } from "hardhat/config";
+
+import "@nomiclabs/hardhat-vyper";
+import "@matterlabs/hardhat-zksync-vyper";
+import "@matterlabs/hardhat-zksync-deploy";
+
+const config: HardhatUserConfig = {
+  zkvyper: {},
+  defaultNetwork: "zkSyncTestnet",
+  networks: {
+    hardhat: {
+      zksync: true, // enables zksync in hardhat local network
+    },
+    zkSyncTestnet: {
+      url: "https://testnet.era.zksync.dev",
+      ethNetwork: "goerli",
+      zksync: true,
+    },
+  },
+  // Currently only Vyper v0.3.3 and v0.3.9 versions are supported.
+  vyper: {
+    version: "0.3.3",
+  },
+};
+
+export default config;
+```
+
+</details>
+
+#### Advanced configuration
+
+Inside the `hardhat.config.ts` file, add configuration parameters within a `zkvyper` property.
+
+<details>
+
+<summary>Example advanced config</summary>
+
+```typescript
 import { HardhatUserConfig } from "hardhat/config";
 
 import "@nomiclabs/hardhat-vyper";
@@ -48,7 +93,7 @@ const config: HardhatUserConfig = {
   zkvyper: {
     version: "latest", // Uses latest available in https://github.com/matter-labs/zkvyper-bin/
     settings: {
-      // compilerPath: "zkvyper", // optional field with the path to the `zkvyper` binary.
+      compilerPath: "zkvyper", // optional field with the path to the `zkvyper` binary.
       libraries: {}, // optional. References to non-inlinable libraries
     },
   },
@@ -72,105 +117,50 @@ const config: HardhatUserConfig = {
 export default config;
 ```
 
-**Configuration**
+</details>
 
-::: info zero-config
-
-`hardhat-zksync-vyper` v0.2.0 introduced a default configuration so all parameters are optional.
-
-:::
-
-Any configuration parameters should be added inside a `zkvyper` property in the `hardhat.config.ts` file:
+Configuration options and their details:
 
 * `version`: The `zkvyper` compiler version. Default value is `latest`. Find the latest compiler versions in the [zkvyper repo](https://github.com/matter-labs/zkvyper-bin).
 * `compilerSource`: Indicates the compiler source and can be either `binary`. (A `docker` option is no longer recommended). If there is no previous installation, the plugin automatically downloads one.
 * `compilerPath`: Optional field with the path to the `zkvyper` binary. By default, the binary in `$PATH` is used.
 * `libraries`: Define any non-inlinable libraries your contracts use as dependencies here. Learn more about compiling libraries.
 
-#### 4. Create Vyper contract
+#### Network configuration
 
-The zkSync Era cli generates a `contracts` folder which includes a `Greeter.sol` contract.
+Configure the `zksync` parameter in the networks to enable the `zkvyper` compiler:
 
-* Delete `Greeter.sol` from the `contracts/` directory.
-* Add the equivalent `Greeter.vy` Vyper contract:
-
-```vyper
-# @version ^0.3.3
-# vim: ft=python
-
-owner: public(address)
-greeting: public(String[100])
-
-# __init__ is not invoked when deployed from create_forwarder_to
-@external
-def __init__(greeting: String[64]):
-  self.owner = msg.sender
-  self.greeting = greeting
-
-# Invoke once after create_forwarder_to
-@external
-def setup(_greeting: String[100]):
-  assert self.owner == ZERO_ADDRESS, "owner != zero address"
-  self.owner = msg.sender
-  self.greeting = _greeting
-
-@external
-@view
-def greet() -> String[100]:
-    return self.greeting
+```ts
+defaultNetwork: "zkSyncTestnet",
+networks: {
+  goerli: {
+    url: "https://goerli.infura.io/v3/<API_KEY>", // The Ethereum Web3 RPC URL (optional).
+    zksync: false, // disables zksolc compiler
+  },
+  zkSyncTestnet: {
+    url: "https://testnet.era.zksync.dev", // The testnet RPC URL of zkSync Era network.
+    ethNetwork: "goerli", // The Ethereum Web3 RPC URL, or the identifier of the network (e.g. `mainnet` or `goerli`)
+    zksync: true, // enables zksolc compiler
+  }
+},
 ```
 
-#### 5. Compile the contract
+The `zksync`network option determines if the `zkvyper` compiler is active for a particular network. It is set to `false` by default. This option is especially beneficial for multi-chain projects, allowing you to selectively enable `zksync` for specific networks.
 
-::: code-tabs @tab:active yarn
+### Usage
 
+{% tabs %}
+{% tab title="yarn" %}
 ```bash
 yarn hardhat compile
 ```
+{% endtab %}
 
-@tab npm
-
+{% tab title="npm" %}
 ```bash
-npx hardhat compile
+npm hardhat compile
 ```
+{% endtab %}
+{% endtabs %}
 
-:::
-
-#### 6. Create deployment script
-
-First update the `use-greeter.ts` script, supplied by the CLI in the `deploy/` directory.
-
-Alter this line:
-
-```
-// Load contract artifact. Ensure to compile first!
-import * as ContractArtifact from "../artifacts-zk/contracts/Greeter.sol/Greeter.json";
-```
-
-To aim at our Vyper contract:
-
-```
-// Load contract artifact. Ensure to compile first!
-import * as ContractArtifact from "../artifacts-zk/contracts/Greeter.vy/Greeter.json";
-```
-
-#### 7. Add private key to environment variables
-
-Remove `example` from the `.env.example` file and add your private key to `<WALLET-PRIVATE-KEY>`.
-
-#### 8. Deploy the contract
-
-```
-yarn hardhat deploy-zksync --script deploy-greeter.ts
-```
-
-#### 9. Output
-
-You should see something like this:
-
-```txt
-Running deploy function for the Greeter contract
-The deployment is projected to cost 0.000135806 ETH
-constructor args:0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000094869207468657265210000000000000000000000000000000000000000000000
-Greeter was deployed to 0x7CDF8A4334fafE21B8dCCe70487d6CBC00183c0d
-```
+Compiles all the smart contracts in the `contracts` directory and creates the `artifacts-zk` folder with all the compilation artifacts, including factory dependencies for the contracts, which could be used for contract deployment.
