@@ -112,7 +112,6 @@
 ## ⚙ Infrastructure
 
 * [zkSync Era](infrastructure/zksync-era/README.md)
-  * [Getting Started](infrastructure/zksync-era/getting-started.md)
   * [Installation](infrastructure/zksync-era/installation.md)
   * [Running Node](infrastructure/zksync-era/running-node.md)
   * [Development](infrastructure/zksync-era/development.md)
