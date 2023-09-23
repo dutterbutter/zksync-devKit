@@ -32,16 +32,16 @@ Each paymaster should implement the [IPaymaster](https://github.com/matter-labs/
 
 ### Step 2 — Environment setup
 
-Using `zksync-cli` we will create a new project with the required dependencies and boilerplate paymaster implementations:
+Using `zksync-cli` create a new project with the required dependencies and boilerplate paymaster implementations:
 
 <pre class="language-bash"><code class="lang-bash"><strong>npx zksync-cli@latest create-project gaslessPaymaster
 </strong></code></pre>
 
-Choose `Hardhat + Solidity` to setup our project repository. The contract we will be adjusting exists under `/contracts/GeneralPaymaster.sol`.&#x20;
+Choose `Hardhat + Solidity` to setup the project repository. The contract for this guide exists under `/contracts/GeneralPaymaster.sol`.&#x20;
 
 ### Step 3 — Updating the contract
 
-No modifications are needed for gasless transactions since the provided GeneralPaymaster contract is already configured for this purpose. With no restrictions on its usage.&#x20;
+No modifications are needed for gasless transactions since the provided `GeneralPaymaster` contract is already configured for this purpose. With no restrictions on its usage.&#x20;
 
 Reviewing the `validateAndPayForPaymasterTransaction` function reveals its simplicity: it only verifies that the paymaster holds sufficient ETH.
 

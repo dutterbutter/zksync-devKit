@@ -108,30 +108,6 @@ web3.eth.estimate_gas({'to': '0xd3CdA913deB6f67967B99D67aCDFa1712C293601', 'from
 {% endtab %}
 {% endtabs %}
 
-
-
-{% code overflow="wrap" lineNumbers="true" %}
-```typescript
-import { Provider } from "zksync-web3";
-import { utils } from "ethers";
-
-const provider = new Provider("https://testnet.era.zksync.dev");
-
-const estimate = await provider.estimateGas({
-  // Wrapped ETH address
-  to: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
-
-  // `function deposit() payable`
-  data: "0xd0e30db0",
-
-  // 1 ether
-  value: utils.parseEther("1.0")
-});
-
-console.log(estimate);
-```
-{% endcode %}
-
 ### `estimateGasL1` Method
 
 #### Overview

@@ -88,6 +88,7 @@
 * [Testing Examples](test-and-debug/testing-examples/README.md)
   * [Time Change](test-and-debug/testing-examples/time-change.md)
   * [Upgradable contracts](test-and-debug/testing-examples/upgradable-contracts.md)
+  * [Impersonate Account](test-and-debug/testing-examples/impersonate-account.md)
 
 ## 🛠 Tooling
 

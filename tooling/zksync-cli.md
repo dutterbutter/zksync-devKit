@@ -1,8 +1,6 @@
 # zksync-cli
 
-## zkSync CLI
-
-The zkSync CLI simplifies the process of developing applications and interacting with zkSync Era.
+The zkSync CLI simplifies the process of developing applications and interacting with zkSync Era.&#x20;
 
 The code is available [in the following repository](https://github.com/matter-labs/zksync-cli).
 
