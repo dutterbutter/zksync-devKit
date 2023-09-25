@@ -2,7 +2,7 @@
 description: Learn to use TheGraph to query zkSync chain data in real-time.
 ---
 
-# TheGraph
+# The Graph
 
 ### Introduction
 
@@ -14,14 +14,27 @@ In this tutorial, you will learn how to deploy a subgraph that tracks a specific
 
 * **Knowledge Base**: Familiarity with Typescript.
 * **Wallet Setup**: Have MetaMask installed and set up, ensuring there's a balance on the zkSync Testnet.&#x20;
-* **Tooling**: This guide utilizes [`zksync-cli`](../zksync-cli.md). Ensure you have it accessible or installed in your environment.
+* **Tooling**: This guide utilizes `@graphprotocol/graph-cli`. Ensure you have it accessible or installed in your environment.
 
-#### Step 1 — Visit theGraph Studio and Connect Wallet
+### Step 1 — Understanding subgraphs
 
-* Visit [https://thegraph.com/studio/](https://thegraph.com/studio/)
+A subgraph extracts data from a blockchain, processing it and storing it so that it can be easily queried via GraphQL. DApps often need to fetch data from chain. Instead of querying the chain directly, which can be slow and expensive, DApps can use subgraphs to quickly retrieve the data they need.&#x20;
+
+**Key components:**
+
+* **subgraph.yaml**: a YAML file containing the subgraph manifest.
+* **schema.graphql**: a GraphQL schema that defines what data is stored for your subgraph, and how to query it via GraphQL.
+* **AssemblyScript Mappings**: [AssemblyScript](https://github.com/AssemblyScript/assemblyscript) code that translates from the event data to the entities defined in your schema.
+
+### Step 2 — Create a new Subgraph
+
+Visit [https://thegraph.com/studio/](https://thegraph.com/studio/), connect your wallet
+
 * Connect your wallet
 
 #### Step 2 — Create a new Subgraph
+
+
 
 * Click on the button to create a new subgraph
 * Enter the name of the subgraph (for example: `zksync-thegraph-tutorial`)
