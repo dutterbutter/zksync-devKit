@@ -36,7 +36,7 @@ Enter the name of the subgraph, and select the zkSync Era as the network:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-09-25 at 4.35.31 PM.png" alt="" width="338"><figcaption></figcaption></figure>
 
-Install the [`@graphprotocol/graph-cli`](https://www.npmjs.com/package/@graphprotocol/graph-cli)
+Install the [`@graphprotocol/graph-cli`](https://www.npmjs.com/package/@graphprotocol/graph-cli)`:`
 
 {% tabs %}
 {% tab title="yarn" %}

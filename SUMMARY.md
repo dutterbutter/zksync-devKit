@@ -103,16 +103,16 @@
   * [API3](tooling/oracles/api3.md)
   * [DIA](tooling/oracles/dia.md)
   * [Redstone](tooling/oracles/redstone.md)
-  * [Pyth](tooling/oracles/pyth.md)
 * [Analytics](tooling/analytics/README.md)
   * [The Graph](tooling/analytics/thegraph.md)
-  * [ZettaBlock](tooling/analytics/zettablock.md)
   * [Dune](tooling/analytics/dune.md)
 * [IDE](tooling/ide/README.md)
   * [Atlas](tooling/ide/atlas.md)
 * [Node Providers](tooling/node-providers/README.md)
   * [Ankr](tooling/node-providers/ankr.md)
   * [Chainstack](tooling/node-providers/chainstack.md)
+* [Ecosystem Primitives](tooling/ecosystem-primitives/README.md)
+  * [LayerZero](tooling/ecosystem-primitives/layerzero.md)
 
 ## ⚙ Infrastructure
 

@@ -1,4 +1,8 @@
-# Atlas
+---
+description: Use LayerZero to send a bytes payload from zkSync to Optimism.
+---
+
+# LayerZero
 
 ### Introduction
 
@@ -10,7 +14,7 @@
 * **Wallet Setup**:&#x20;
 * **Tooling**:&#x20;
 
-### Step 1 — Understanding Atlas
+### Step 1 — Understanding LayerZero messaging service
 
 
 
