@@ -105,7 +105,7 @@
   * [Redstone](tooling/oracles/redstone.md)
   * [Pyth](tooling/oracles/pyth.md)
 * [Analytics](tooling/analytics/README.md)
-  * [The Graph](tooling/analytics/the-graph.md)
+  * [The Graph](tooling/analytics/thegraph.md)
   * [ZettaBlock](tooling/analytics/zettablock.md)
   * [Dune](tooling/analytics/dune.md)
 * [IDE](tooling/ide/README.md)
