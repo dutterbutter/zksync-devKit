@@ -55,6 +55,7 @@
     * [ERC20Fixed](build/contract-development/paymasters/erc20fixed.md)
     * [ERC20Gated](build/contract-development/paymasters/erc20gated.md)
     * [TimeBased](build/contract-development/paymasters/timebased.md)
+    * [ArbitraryData](build/contract-development/paymasters/arbitrarydata.md)
   * [Hardhat Plugins](build/contract-development/hardhat-plugins/README.md)
     * [hardhat-zksync-solc](build/contract-development/hardhat-plugins/hardhat-zksync-solc.md)
     * [hardhat-zksync-vyper](build/contract-development/hardhat-plugins/hardhat-zksync-vyper.md)
