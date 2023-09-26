@@ -4,7 +4,7 @@
 
 **SDKs**
 
-* [ ] **(In-progress)** Port over and improve documentation for each SDK
+* [ ] Port over and improve documentation for each SDK
 * [ ] Add hosted code usage examples for each JS sdk operation
 * [ ] Ensure structure consistency throughout SDK documentation&#x20;
 
@@ -21,6 +21,7 @@
 * [ ] Account Abstraction examples and guide
 * [ ] **(In-progress)** Paymaster examples and guide
 * [ ] **(In-progress)** Port over and improve hardhat plugin documentation&#x20;
+* [ ] Provide advanced contract guides (e.g. upgradability, create2)
 * [ ] Provide usage examples for making use of wagmi + zksync&#x20;
 * [ ] Provide usage examples for making use of web3-react + zksync&#x20;
 * [ ] Provide usage examples for making use of useDapp + zksync&#x20;
