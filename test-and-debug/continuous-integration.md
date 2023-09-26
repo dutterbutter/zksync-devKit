@@ -18,7 +18,7 @@ Below provides usage examples for quick and more advanced setups.
 
 #### Quickstart <a href="#user-content-quickstart" id="user-content-quickstart"></a>
 
-```
+```yaml
 name: Run Era Test Node Action
 
 on:
@@ -41,7 +41,7 @@ jobs:
 
 With configuration options:
 
-```
+```yaml
 name: Run Era Test Node Action
 
 on:
@@ -72,7 +72,7 @@ jobs:
 
 With upload log file to artifacts:
 
-```
+```yaml
 name: Run Era Test Node Action
 
 on:
@@ -123,7 +123,7 @@ jobs:
 
 With Fork:
 
-```
+```yaml
 name: Run Era Test Node Action
 
 on:
