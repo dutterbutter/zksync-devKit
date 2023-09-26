@@ -39,6 +39,11 @@ Using `zksync-cli` create a new project with the required dependencies and boile
 
 Choose `Hardhat + Solidity` to setup the project repository. The contract for this guide exists under `/contracts/GeneralPaymaster.sol`.&#x20;
 
+**Update the Environment File**:
+
+* Modify the `.env-example` file with your private key.
+* Ensure your account has a sufficient balance.
+
 ### Step 3 — Updating the contract
 
 No modifications are needed for gasless transactions since the provided `GeneralPaymaster` contract is already configured for this purpose. With no restrictions on its usage.&#x20;

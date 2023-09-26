@@ -41,6 +41,11 @@ Using `zksync-cli` we will create a new project with the required dependencies a
 
 Choose `Hardhat + Solidity` to setup our project repository. The contract we will be adjusting exists under `/contracts/GeneralPaymaster.sol`.&#x20;
 
+**Update the Environment File**:
+
+* Modify the `.env-example` file with your private key.
+* Ensure your account has a sufficient balance.
+
 ### Step 3 — Updating the contract
 
 Using the `GeneralPaymaster.sol` contract, add the `allowList` mapping and event emit line to the contract:
