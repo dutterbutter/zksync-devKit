@@ -1,6 +1,6 @@
 # ZKs JSON-RPC API
 
-#### `zks_estimateFee`
+### `zks_estimateFee`
 
 Returns the fee for the transaction.
 
@@ -33,7 +33,7 @@ curl -X POST  -H "Content-Type: application/json"  \
 }
 ```
 
-#### `zks_estimateGasL1ToL2`
+### `zks_estimateGasL1ToL2`
 
 Returns an estimate of the gas required for a L1 to L2 transaction.
 
@@ -61,7 +61,7 @@ curl -X POST  -H "Content-Type: application/json"  \
 }
 ```
 
-#### `zks_getAllAccountBalances`
+### `zks_getAllAccountBalances`
 
 Returns all balances for confirmed tokens given by an account address.
 
@@ -91,7 +91,7 @@ curl -X POST -H "Content-Type: application/json" \
 }
 ```
 
-#### `zks_getBlockDetails`
+### `zks_getBlockDetails`
 
 Returns additional zkSync-specific information about the L2 block.
 
@@ -144,7 +144,7 @@ curl -X POST -H "Content-Type: application/json" \
 }
 ```
 
-#### `zks_getBridgeContracts`
+### `zks_getBridgeContracts`
 
 Returns L1/L2 addresses of default bridges.
 
@@ -173,7 +173,7 @@ curl -X POST -H "Content-Type: application/json" \
 }
 ```
 
-#### `zks_getBytecodeByHash`
+### `zks_getBytecodeByHash`
 
 Returns bytecode of a transaction given by its hash.
 
@@ -214,15 +214,13 @@ curl -X POST -H "Content-Type: application/json" \
 }
 ```
 
-#### `zks_getConfirmedTokens`
+### `zks_getConfirmedTokens`
 
 Returns \[address, symbol, name, and decimal] information of all tokens within a range of ids given by parameters `from` and `limit`.
 
 **Confirmed** in the method name means any token bridged to zkSync Era via the official bridge.
 
 The tokens are returned in alphabetical order by their symbol. This means the token id is its position in an alphabetically sorted array of tokens.
-
-:::info This method is mainly used by the zkSync team as it relates to a database query where the primary keys relate to the given ids. :::
 
 **Inputs**
 
@@ -271,7 +269,7 @@ curl -X POST -H "Content-Type: application/json" \
 }
 ```
 
-#### `zks_getL1BatchBlockRange`
+### `zks_getL1BatchBlockRange`
 
 Returns the range of blocks contained within a batch given by batch number.
 
@@ -301,7 +299,7 @@ curl -X POST -H "Content-Type: application/json" \
 }
 ```
 
-#### `zks_getL1BatchDetails`
+### `zks_getL1BatchDetails`
 
 Returns data pertaining to a given batch.
 
@@ -348,7 +346,7 @@ curl -X POST -H "Content-Type: application/json" \
 }
 ```
 
-#### `zks_getL2ToL1LogProof`
+### `zks_getL2ToL1LogProof`
 
 Given a transaction hash, and an index of the L2 to L1 log produced within the transaction, it returns the proof for the corresponding L2 to L1 log.
 
@@ -406,7 +404,7 @@ The `id` and `proof` can be used right away for interacting with the zkSync Era 
 * The bootloader produces a log for every L1-originated transaction that outputs if the transaction has succeeded.&#x20;
 {% endhint %}
 
-#### `zks_getMainContract`
+### `zks_getMainContract`
 
 Returns the address of the zkSync Era contract.
 
@@ -432,7 +430,7 @@ curl -X POST -H "Content-Type: application/json" \
 }
 ```
 
-#### `zks_getRawBlockTransactions`
+### `zks_getRawBlockTransactions`
 
 Returns data of transactions in a block.
 
@@ -489,7 +487,7 @@ curl -X POST -H "Content-Type: application/json" \
 }
 ```
 
-#### `zks_getTestnetPaymaster`
+### `zks_getTestnetPaymaster`
 
 Returns the address of the testnet paymaster: the paymaster that is available on testnets and enables paying fees in ERC-20 compatible tokens.
 
@@ -515,7 +513,7 @@ curl -X POST -H "Content-Type: application/json" \
 }
 ```
 
-#### `zks_getTokenPrice`
+### `zks_getTokenPrice`
 
 Returns the price of a given token in USD.
 
@@ -550,7 +548,7 @@ curl -X POST -H "Content-Type: application/json" \
 }
 ```
 
-#### `zks_getTransactionDetails`
+### `zks_getTransactionDetails`
 
 Returns data from a specific transaction given by the transaction hash.
 
@@ -588,7 +586,7 @@ curl -X POST -H "Content-Type: application/json" \
 }
 ```
 
-#### `zks_L1BatchNumber`
+### `zks_L1BatchNumber`
 
 Returns the latest L1 batch number.
 
@@ -614,7 +612,7 @@ curl -X POST -H "Content-Type: application/json" \
 }
 ```
 
-#### `zks_L1ChainId`
+### `zks_L1ChainId`
 
 Returns the chain id of the underlying L1.
 

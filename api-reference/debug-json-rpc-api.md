@@ -1,6 +1,6 @@
 # Debug JSON-RPC API
 
-#### `debug_traceBlockByHash`
+### `debug_traceBlockByHash`
 
 Returns debug trace of all executed calls contained in a block given by its L2 hash.
 
@@ -37,7 +37,7 @@ curl -X POST  -H "Content-Type: application/json"  \
 },
 ```
 
-#### `debug_traceBlockByNumber`
+### `debug_traceBlockByNumber`
 
 Returns debug trace of all executed calls contained in a block given by its L2 block number.
 
@@ -74,7 +74,7 @@ curl -X POST  -H "Content-Type: application/json"  \
 },
 ```
 
-#### `debug_traceCall`
+### `debug_traceCall`
 
 Returns debug trace containing information on a specific calls given by the call request.
 
@@ -112,7 +112,7 @@ curl -X POST  -H "Content-Type: application/json"  \
 },
 ```
 
-#### `debug_traceTransaction`
+### `debug_traceTransaction`
 
 Uses the [EVM's `callTracer`](https://geth.ethereum.org/docs/developers/evm-tracing/built-in-tracers#call-tracer) to return a debug trace of a specific transaction given by its transaction hash.
 
