@@ -37,6 +37,12 @@ npx zksync-cli@latest [COMMAND]
 {% endtab %}
 {% endtabs %}
 
+## Usage
+
+```bash
+zksync-cli [options] [command]
+```
+
 ### Commands
 
 | Command                                   | Description                                                                                                   |
