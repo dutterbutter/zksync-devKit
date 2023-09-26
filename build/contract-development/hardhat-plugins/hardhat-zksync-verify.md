@@ -1,5 +1,7 @@
 # hardhat-zksync-verify
 
+`TODO: reformat and clean`
+
 ## `hardhat-zksync-verify`
 
 This plugin is used to verify contracts on the zkSync Era network.

@@ -1,5 +1,7 @@
 # hardhat-zksync-verify-vyper
 
+`TODO: reformat and clean`
+
 ## `hardhat-zksync-verify-vyper`
 
 This plugin is used to verify vyper contracts on the zkSync Era network.

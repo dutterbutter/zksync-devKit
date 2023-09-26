@@ -1,6 +1,6 @@
 # Table of contents
 
-* [👋 zkSync Developers Pulse](README.md)
+* [👋 Welcome zkSync Devs](README.md)
 
 ## 💻 SDKs
 
@@ -66,8 +66,7 @@
     * [useDApp](build/frontend-development/frameworks/usedapp.md)
   * [Libraries](build/frontend-development/libraries/README.md)
     * [viem](build/frontend-development/libraries/viem.md)
-    * [ethers](build/frontend-development/libraries/ethers.md)
-    * [web3](build/frontend-development/libraries/web3.md)
+    * [ethers-v6](build/frontend-development/libraries/ethers-v6.md)
   * [Wallets](build/frontend-development/wallets/README.md)
     * [WalletConnect](build/frontend-development/wallets/walletconnect.md)
     * [RainbowKit](build/frontend-development/wallets/rainbowkit.md)
@@ -132,4 +131,3 @@
 
 * [Community Channels](support/community-channels.md)
 * [FAQ](support/faq.md)
-* [Security](support/security.md)

@@ -1,10 +1,14 @@
-# Era Test Node
+---
+description: Use in-memory node for rapid development and testing.
+---
 
-## In-memory node
+# Era Test Node
 
 This documentation provides instructions on setting up and using the In-Memory Node, `era-test-node`, for local testing. It covers installation, network forking, transaction details viewing, replaying transactions, and testing local bootloader and system contracts.
 
-:::warning Tool in alpha stage Please keep in mind that `era-test-node` is still in its **alpha** stage, so some features might not be fully supported yet and may not work as fully intended. It is [open-sourced](https://github.com/matter-labs/era-test-node) and contributions are welcomed. :::
+{% hint style="danger" %}
+Tool in alpha stage Please keep in mind that `era-test-node` is still in its **alpha** stage, so some features might not be fully supported yet and may not work as fully intended. It is [open-sourced](https://github.com/matter-labs/era-test-node) and contributions are welcomed.
+{% endhint %}
 
 ### Understanding the In-Memory Node
 
@@ -61,7 +65,9 @@ Private Key: 0x850683b40d4a740aa6e745f889a6fdc8327be76e122f5aba645a5b02d0248db8
 ========================================
 ```
 
-:::warning When utilizing `era-test-node` with MetaMask, it's essential to note that any restart of the in-memory node will necessitate a reset of MetaMask's cached account data (nonce, etc). To do this, navigate to 'Settings', then 'Advanced', and finally, select 'Clear activity tab data'. :::
+{% hint style="info" %}
+When utilizing `era-test-node` with MetaMask, it's essential to note that any restart of the in-memory node will necessitate a reset of MetaMask's cached account data (nonce, etc). To do this, navigate to 'Settings', then 'Advanced', and finally, select 'Clear activity tab data'.
+{% endhint %}
 
 #### Network details
 
@@ -72,18 +78,14 @@ The `era_test_node` has the following default network configurations:
 
 These can be configured to your preference.
 
-::: warning Please note that the existing implementation does not facilitate communication with Layer 1. As a result, an L1 RPC is not available. :::
-
 ### Forking networks
 
 To fork the mainnet, use the following command:
 
 ```bash
-# era_test_node fork <NETWORK>
+# era_test_node fork <mainnet | testnet>
 era_test_node fork mainnet
 ```
-
-:::tip You can also fork testnet with `era_test_node fork testnet` :::
 
 The expected output will be as follows:
 
@@ -269,7 +271,10 @@ Block Number: 8072361
 
 In-memory node allows testing of the currently compiled bootloader and system contracts. This makes it possible to examine the effects of changes on already deployed contracts.
 
-:::warning These commands assume you have set `$ZKSYNC_HOME` in your shell profile file (e.g. \~/.bash\_profile, \~/.zshrc) to target your local copy of `era-test-node`. For instance,
+{% hint style="info" %}
+**`$ZKSYNC_HOME`**
+
+These commands assume you have set `$ZKSYNC_HOME` in your shell profile file (e.g. \~/.bash\_profile, \~/.zshrc) to target your local copy of `era-test-node`. For instance,
 
 ```bash
 # Add path here:
@@ -277,8 +282,7 @@ export ZKSYNC_HOME=/path/to/era-test-node
 
 export PATH=$ZKSYNC_HOME/bin:$PATH
 ```
-
-:::
+{% endhint %}
 
 Firstly, you will need to preprocess and compile the contracts:
 

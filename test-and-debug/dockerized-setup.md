@@ -1,8 +1,6 @@
 # Dockerized Setup
 
-### Dockerized local setup: installation & setup
-
-Let's delve into the setup process for Dockerized Local Testing Environment.
+Let's delve into the setup process for Dockerized local testing environment.
 
 #### Prerequisites
 
@@ -12,7 +10,7 @@ Make sure `Docker` and `docker-compose` are installed on your system. If not, fo
 
 To clone the dockerized project, use the following command:
 
-```
+```bash
 git clone https://github.com/matter-labs/local-setup.git
 ```
 
@@ -31,7 +29,9 @@ This command initiates three docker containers:
 * Local Geth node: The L1 for zkSync.
 * The zkSync node itself.
 
-:::tip The first `start.sh` script execution should go uninterrupted. If the bootstrapping process halts unexpectedly, reset the local zkSync state and try again. The process can take up to 10 minutes to start (only the first time!). :::
+{% hint style="info" %}
+The first `start.sh` script execution should go uninterrupted. If the bootstrapping process halts unexpectedly, reset the local zkSync state and try again. The process can take up to 10 minutes to start (only the first time!)
+{% endhint %}
 
 #### Network details
 
@@ -56,13 +56,9 @@ In case of a "permission denied" error, execute it with root privileges:
 sudo ./clear.sh
 ```
 
-::: info Update docker images The `clear.sh` script will also pull the most recent Docker images so it can be used to update the dockerized local setup. :::
-
 #### Working with rich wallets
 
 The local zkSync setup includes "rich" wallets preloaded with substantial amounts of ETH on both L1 and L2. You can find a complete list of the accounts' addresses along with the corresponding private keys [here](https://github.com/matter-labs/local-setup/blob/main/rich-wallets.json).
-
-:::warning Rich wallets only hold ETH. If you need to test with ERC20 tokens, you'd need to deploy them yourself. :::
 
 #### Employing a custom database or Ethereum node
 
