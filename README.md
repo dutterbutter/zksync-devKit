@@ -4,7 +4,7 @@
 
 **SDKs**
 
-* [ ] Port over and improve documentation for each SDK
+* [ ] Port over and improve documentation for each SDK (when ethersv6 ready)
 * [ ] Add hosted code usage examples for each JS sdk operation
 * [ ] Ensure structure consistency throughout SDK documentation&#x20;
 

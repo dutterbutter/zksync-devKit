@@ -121,6 +121,8 @@
   * [Chainstack](tooling/node-providers/chainstack.md)
 * [Ecosystem Primitives](tooling/ecosystem-primitives/README.md)
   * [LayerZero](tooling/ecosystem-primitives/layerzero.md)
+  * [Safe](tooling/ecosystem-primitives/safe.md)
+  * [Uniswap V3](tooling/ecosystem-primitives/uniswap-v3.md)
 
 ## ⚙ Infrastructure
 
