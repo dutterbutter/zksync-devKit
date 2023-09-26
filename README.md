@@ -11,8 +11,8 @@
 **API reference**
 
 * [ ] Provide documentation for each Ethereum JSON-RPC API endpoint&#x20;
-* [ ] Provide documentation for each ZKs JSON-RPC API endpoint&#x20;
-* [ ] Provide documentation for each supported Debug JSON-RPC API endpoint&#x20;
+* [x] Provide documentation for each ZKs JSON-RPC API endpoint&#x20;
+* [x] Provide documentation for each supported Debug JSON-RPC API endpoint&#x20;
 * [ ] Provide documentation for each supported PubSub JSON-RPC API endpoint&#x20;
 
 **Build**
@@ -31,7 +31,7 @@
 
 * [ ] **(In-progress)** Port over and reformat dockerized setup&#x20;
 * [ ] **(In-progress)** Port over and reformat era-test-node&#x20;
-* [ ] Add Hardhat testing examples
+* [ ] Add Hardhat testing examples (when ready)
 * [ ] Add Foundry testing examples (when ready)
 * [x] Add CI documentation for GH action&#x20;
 * [ ] Add various testing examples (e.g. time, impersonate, upgradability)&#x20;
@@ -46,13 +46,13 @@
 * [ ] **(In-progress)** Add dev guides for interacting with oracle services&#x20;
 * [ ] **(In-progress)** Add dev guides for interacting with analytic services&#x20;
 * [ ] **(In-progress)** Add dev guides for interacting with ide services&#x20;
-* [ ] Add dev guides for interacting with node services&#x20;
-* [ ] Add dev guides for interacting with ecosystem primitives&#x20;
+* [ ] **(In-progress)** Add dev guides for interacting with node services&#x20;
+* [ ] **(In-progress)** Add dev guides for interacting with ecosystem primitives&#x20;
 
 **Infrastructure**
 
-* [ ] Add relevant documentation for starting zkSync Era node&#x20;
-* [ ] Add relevant documentation for developing  / contributing to zkSync Era node
+* [ ] **(In-progress)** Add relevant documentation for starting zkSync Era node&#x20;
+* [ ] **(In-progress)** Add relevant documentation for developing  / contributing to zkSync Era node
 * [x] Add relevant documentation for starting EN
 
 **Support**&#x20;

@@ -6,7 +6,6 @@
 
 * [Getting Started](sdks/getting-started.md)
 * [Javascript](sdks/javascript/README.md)
-  * [Getting Started](sdks/javascript/getting-started.md)
   * [Core Concepts](sdks/javascript/core-concepts.md)
   * [API Reference](sdks/javascript/api-reference/README.md)
     * [Provider](sdks/javascript/api-reference/provider/README.md)
@@ -17,14 +16,20 @@
       * [Network and Chain](sdks/javascript/api-reference/provider/network-and-chain.md)
       * [Event and Log](sdks/javascript/api-reference/provider/event-and-log.md)
 * [Python](sdks/python/README.md)
-  * [Page 2](sdks/python/page-2.md)
+  * [Core Concepts](sdks/python/core-concepts.md)
+  * [API Reference](sdks/python/api-reference.md)
 * [Rust](sdks/rust/README.md)
-  * [Page 3](sdks/rust/page-3.md)
+  * [Core Concepts](sdks/rust/core-concepts.md)
+  * [API Reference](sdks/rust/api-reference.md)
 * [Go](sdks/go/README.md)
-  * [Page 4](sdks/go/page-4.md)
+  * [Core Concepts](sdks/go/core-concepts.md)
+  * [API Reference](sdks/go/api-reference.md)
 * [Java](sdks/java/README.md)
-  * [Page 5](sdks/java/page-5.md)
-* [Swift](sdks/swift.md)
+  * [Core Concepts](sdks/java/core-concepts.md)
+  * [API Reference](sdks/java/api-reference.md)
+* [Swift](sdks/swift/README.md)
+  * [Core Concepts](sdks/swift/core-concepts.md)
+  * [API Reference](sdks/swift/api-reference.md)
 
 ## 🌐 API Reference
 

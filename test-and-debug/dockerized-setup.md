@@ -2,7 +2,7 @@
 
 Let's delve into the setup process for Dockerized local testing environment.
 
-#### Prerequisites
+### Prerequisites
 
 Make sure `Docker` and `docker-compose` are installed on your system. If not, follow the [installation guide](https://docs.docker.com/get-docker/). Familiarity with the zkSync Hardhat plugins is also recommended. If you're new to zkSync development with Hardhat, check out the getting started section here.
 
@@ -176,7 +176,7 @@ describe("Greeter", function () {
 
 Execute the test file with:
 
-```
+```bash
 yarn test
 ```
 
