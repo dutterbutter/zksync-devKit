@@ -42,7 +42,7 @@
 * [x] Port over and improve zksync-cli documentation
 * [ ] Add documentation for interacting and making use of portal&#x20;
 * [ ] Add documentation for interacting and making use of bridge&#x20;
-* [ ] Add documentation for interacting with public block explorer APIs  &#x20;
+* [ ] **(In-progress)** Add documentation for interacting with public block explorer APIs  &#x20;
 * [ ] **(In-progress)** Add dev guides for interacting with oracle services&#x20;
 * [ ] **(In-progress)** Add dev guides for interacting with analytic services&#x20;
 * [ ] **(In-progress)** Add dev guides for interacting with ide services&#x20;
