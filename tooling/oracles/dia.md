@@ -16,6 +16,12 @@ For our purposes, we'll make use of their token price feeds to fetch live [ETH/U
 
 <table><thead><tr><th width="272">Contract</th><th width="212.33333333333331">Update Frequency</th><th>Network</th></tr></thead><tbody><tr><td><a href="https://explorer.zksync.io/address/0x8569B6695B25F9Ce9A0beDA29231eE6f2fDd3997">Price Feed</a> </td><td>2 hr</td><td>zkSync Era </td></tr><tr><td><a href="https://goerli.explorer.zksync.io/address/0x294838c2399950Ab91a74F9E35213aD417761FB5">Price Feed</a></td><td>1 hr</td><td>zkSync Testnet</td></tr></tbody></table>
 
+{% hint style="danger" %}
+**NOTE**&#x20;
+
+DIA demo oracles are not intended for use in production environments. Developers can request a dedicated, production-ready oracle with custom price feeds and configuration settings. Start the request process: [Request a Custom Oracle | DIA Documentation](https://docs.diadata.org/introduction/intro-to-dia-oracles/request-an-oracle).
+{% endhint %}
+
 ### Prerequisites
 
 * **Knowledge Base**: Familiarity with deploying smart contracts.

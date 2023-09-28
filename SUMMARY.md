@@ -101,9 +101,10 @@
 ## 🛠 Tooling
 
 * [Getting Started](tooling/getting-started.md)
+* [Network Faucets](tooling/network-faucets.md)
 * [zksync-cli](tooling/zksync-cli.md)
 * [Portal](tooling/portal.md)
-* [Bridge](tooling/bridge.md)
+* [Bridging](tooling/bridging.md)
 * [Block Explorer](tooling/block-explorer/README.md)
   * [API Reference](tooling/block-explorer/api-reference.md)
   * [Contract Verification](tooling/block-explorer/contract-verification.md)
@@ -111,18 +112,19 @@
   * [API3](tooling/oracles/api3.md)
   * [DIA](tooling/oracles/dia.md)
   * [Redstone](tooling/oracles/redstone.md)
-* [Analytics](tooling/analytics/README.md)
-  * [The Graph](tooling/analytics/thegraph.md)
-  * [Dune](tooling/analytics/dune.md)
+  * [Pyth](tooling/oracles/pyth.md)
+* [Data Indexers](tooling/data-indexers/README.md)
+  * [The Graph](tooling/data-indexers/the-graph.md)
+  * [Covalent](tooling/data-indexers/covalent.md)
+  * [Flair](tooling/data-indexers/flair.md)
 * [IDE](tooling/ide/README.md)
   * [Atlas](tooling/ide/atlas.md)
 * [Node Providers](tooling/node-providers/README.md)
   * [Ankr](tooling/node-providers/ankr.md)
   * [Chainstack](tooling/node-providers/chainstack.md)
-* [Ecosystem Primitives](tooling/ecosystem-primitives/README.md)
-  * [LayerZero](tooling/ecosystem-primitives/layerzero.md)
-  * [Safe](tooling/ecosystem-primitives/safe.md)
-  * [Uniswap V3](tooling/ecosystem-primitives/uniswap-v3.md)
+* [Cross Chain](tooling/cross-chain/README.md)
+  * [LayerZero](tooling/cross-chain/layerzero.md)
+* [Toolchains](tooling/toolchains.md)
 
 ## ⚙ Infrastructure
 

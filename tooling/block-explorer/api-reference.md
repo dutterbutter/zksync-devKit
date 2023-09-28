@@ -1,6 +1,10 @@
+---
+description: Block explorer API reference guide.
+---
+
 # API Reference
 
-{% swagger src="../../.gitbook/assets/docs.json" path="/api?module=contract&action=getabi" method="get" %}
+{% swagger src="../../.gitbook/assets/docs.json" path="/api?module=contract&action=getabi" method="get" expanded="false" %}
 [docs.json](../../.gitbook/assets/docs.json)
 {% endswagger %}
 
