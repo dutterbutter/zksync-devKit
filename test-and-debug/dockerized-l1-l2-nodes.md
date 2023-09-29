@@ -1,4 +1,8 @@
-# Dockerized Setup
+---
+description: Guide to setup dockerized containers of L1 and L2 nodes.
+---
+
+# Dockerized L1 - L2 Nodes
 
 Let's delve into the setup process for Dockerized local testing environment.
 

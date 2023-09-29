@@ -14,7 +14,7 @@
 
 ### Chainbase
 
-
+[Chainbase](https://chainbase.com/) API is supercharged for reliability, data correctness, and scalability. Chainbase will handle all the forks, upgrades, and network interruptions
 
 ### DRPC
 
@@ -28,3 +28,11 @@
 
 [Unifra](https://base.unifra.io/) is a Web3 developer platform that provides tools, APIs, and node infrastructure, and provides access to Base nodes that are nodes are reliabile, scalable, and easy to use.
 
+### Public RPCs
+
+| Mainnet                                                                                              | Testnet                                                                                                              |
+| ---------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| [https://mainnet.era.zksync.io](https://mainnet.era.zksync.io)                                       | [https://testnet.era.zksync.dev](https://testnet.era.zksync.dev)                                                     |
+| [https://zksync.drpc.org](https://zksync.drpc.org)                                                   | [https://zksync-era-testnet.blockpi.network/v1/rpc/public](https://zksync-era-testnet.blockpi.network/v1/rpc/public) |
+| [https://zksync.meowrpc.com](https://zksync.meowrpc.com)                                             |                                                                                                                      |
+| [https://zksync-era.blockpi.network/v1/rpc/public](https://zksync-era.blockpi.network/v1/rpc/public) |                                                                                                                      |

@@ -10,8 +10,8 @@ Welcome to the **IDE page**, a comprehensive hub dedicated to interacting with r
 
 #### Atlas IDE
 
-Dive into the world of smart contract development with ease. **Atlas** provides a robust and user-friendly environment to write, test, and deploy your smart contracts in a matter of minutes. Discover the potential and get started with Atlas today and deploy your first contract on zkSync Era!
+[**Atlas**](https://www.atlaszk.com/) provides a robust and user-friendly environment to write, test, and deploy your smart contracts in a matter of minutes. Discover the potential and get started with Atlas today and deploy your first contract on zkSync Era!
 
 ### Remix IDE (Coming Soon)
 
-Stay tuned for **Remix**, another powerful IDE that's on its way to facilitate your development journey on zkSync Era. As we continuously strive to provide the best tools for our developer community!
+Stay tuned for [**Remix**](https://remix.ethereum.org/), another powerful IDE that's on its way to facilitate your development journey on zkSync Era. As we continuously strive to provide the best tools for our developer community!
