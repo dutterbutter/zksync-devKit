@@ -111,6 +111,8 @@
 * [Block Explorers](tooling/block-explorers/README.md)
   * [API Reference](tooling/block-explorers/api-reference.md)
   * [Contract Verification](tooling/block-explorers/contract-verification.md)
+* [Cross Chain](tooling/cross-chain/README.md)
+  * [LayerZero](tooling/cross-chain/layerzero.md)
 * [Oracles](tooling/oracles/README.md)
   * [API3](tooling/oracles/api3.md)
   * [DIA](tooling/oracles/dia.md)
@@ -123,8 +125,9 @@
 * [IDE](tooling/ide/README.md)
   * [Atlas](tooling/ide/atlas.md)
 * [Node Providers](tooling/node-providers.md)
-* [Cross Chain](tooling/cross-chain/README.md)
-  * [LayerZero](tooling/cross-chain/layerzero.md)
+* [Monitoring](tooling/monitoring/README.md)
+  * [Dune Analytics](tooling/monitoring/dune-analytics.md)
+  * [zkGas Tracker](tooling/monitoring/zkgas-tracker.md)
 
 ## ⚙ Infrastructure
 
