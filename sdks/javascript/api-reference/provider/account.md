@@ -39,8 +39,8 @@ import { BigNumber } from "ethers";
 // Initialize a new Provider instance
 const provider = new Provider("https://testnet.era.zksync.dev");
 
-// Define the Ethereum address
-const address = "0xYourEthereumAddressHere";
+// Define the address
+const address = "0xa1Cc678Ff30Fe601023Dbe6b62271fbf26E4760f";
 
 // Fetch all account balances
 const balances = await provider.getAllAccountBalances(address);
