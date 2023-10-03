@@ -18,7 +18,7 @@ Welcome to the Analytics page, a comprehensive hub dedicated to interacting with
 
 ### Covalent
 
-[Covalent](https://www.covalenthq.com/) provides the industry-leading Unified API bringing visibility to billions of Web3 data points. Developers use Covalent to build exciting multi-chain applications like crypto wallets, NFT galleries, and investor dashboard tools utilizing data. Checkout how Covalent is supporting zkSync Era.
+[Covalent](https://www.covalenthq.com/docs/networks/zksync-era/) provides the industry-leading Unified API bringing visibility to billions of Web3 data points. Developers use Covalent to build exciting multi-chain applications like crypto wallets, NFT galleries, and investor dashboard tools utilizing data.
 
 ### Flair
 

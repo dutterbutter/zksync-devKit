@@ -13,6 +13,11 @@ The zkSync CLI simplifies the process of developing applications and interacting
 **Learn to contribute:** [CONTRIBUTING.md](https://github.com/matter-labs/zksync-cli/blob/main/.github/CONTRIBUTING.md)
 {% endhint %}
 
+### Prerequisites
+
+* **Node.js v18+**: If not installed, [download it here](https://nodejs.org/).
+* **Docker**: If not installed, [download it here](https://www.docker.com/get-started).
+
 ### Installation
 
 Install the zkSync CLI globally with the following command:
@@ -39,15 +44,18 @@ zksync-cli [options] [command]
 
 ### Commands
 
-| Command                                   | Description                                                                                                   |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `zksync-cli create-project {FOLDER_NAME}` | Creates a project from template in the specified folder                                                       |
-| `zksync-cli deposit`                      | Deposits funds from Ethereum (L1) to zkSync (L2)                                                              |
-| `zksync-cli withdraw`                     | Withdraws funds from zkSync (L2) to Ethereum (L1)                                                             |
-| `zksync-cli withdraw-finalize`            | Finalizes withdrawal of funds from zkSync (L2) to Ethereum (L1)                                               |
-| `zksync-cli help`                         | Provides information about all supported commands                                                             |
-| `zksync-cli help {command}`               | Provides detailed information about how to use a specific command (Replace `{command}` with the command name) |
-| `zksync-cli --version`                    | Returns the current version                                                                                   |
+| Command                                   | Description                                               |
+| ----------------------------------------- | --------------------------------------------------------- |
+| `zksync-cli dev start`                    | Begin your local development environment                  |
+| `zksync-cli dev clean`                    | Clear data for configured modules                         |
+| `zksync-cli dev config`                   | Choose modules to run in local development environment    |
+| `zksync-cli create-project {FOLDER_NAME}` | Creates a project in a specified folder                   |
+| `zksync-cli deposit`                      | Moves funds from Ethereum (L1) to zkSync (L2)             |
+| `zksync-cli withdraw`                     | Manage funds withdrawal from zkSync (L2) to Ethereum (L1) |
+| `zksync-cli withdraw-finalize`            | Finalize withdrawal from zkSync (L2) to Ethereum (L1)     |
+| `zksync-cli help`                         | General help                                              |
+| `zksync-cli help {command}`               | Detailed command usage info                               |
+| `zksync-cli --version`                    | CLI version info                                          |
 
 {% hint style="info" %}
 Withdraws on zkSync Era mainnet have a **24h delay** during Alpha.

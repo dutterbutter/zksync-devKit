@@ -7,7 +7,7 @@ description: Use in-memory node for rapid development and testing.
 This documentation provides instructions on setting up and using the In-Memory Node, `era-test-node`, for local testing. It covers installation, network forking, transaction details viewing, replaying transactions, and testing local bootloader and system contracts.
 
 {% hint style="danger" %}
-Tool in alpha stage Please keep in mind that `era-test-node` is still in its **alpha** stage, so some features might not be fully supported yet and may not work as fully intended. It is [open-sourced](https://github.com/matter-labs/era-test-node) and contributions are welcomed.
+Please keep in mind that `era-test-node` is still in its **alpha** stage, so some features might not be fully supported yet and may not work as fully intended. It is [open-sourced](https://github.com/matter-labs/era-test-node) and contributions are welcomed.
 {% endhint %}
 
 ### Understanding the In-Memory Node
@@ -16,16 +16,29 @@ The In-memory node uses an in-memory database for storing state information and 
 
 You can visit the `era-test-node` repository [here](https://github.com/matter-labs/era-test-node) to learn more.
 
-### Prerequisites
+### Limitations and Features <a href="#user-content--limitations--features" id="user-content--limitations--features"></a>
 
-Before you get started, there are a few prerequisites to consider. Ensure that your development environment meets the following requirements:
+| 🚫 Limitations                                  | ✅ Features                                                  |
+| ----------------------------------------------- | ----------------------------------------------------------- |
+| No communication between Layer 1 and Layer 2.   | Can fork the state of mainnet, testnet, or custom network.  |
+| Many APIs are not yet implemented.              | Can replay existing mainnet or testnet transactions.        |
+| No support for accessing historical data.       | Uses local bootloader and system contracts.                 |
+| Only one transaction allowed per Layer 1 batch. | Operates deterministically in non-fork mode.                |
+| Fixed values returned for zk Gas estimation.    | Starts up quickly with pre-configured 'rich' accounts.      |
+| Redeploy requires MetaMask cache reset.         | Supports hardhat's console.log debugging.                   |
+|                                                 | Resolves names of ABI functions and Events using openchain. |
 
-* **Rust:** Since `era-test-node` is written in Rust, you need to have Rust installed on your machine. You can download Rust from [here](https://www.rust-lang.org/tools/install).
-* **Other Dependencies:** This crate relies on `rocksDB` for its operation. If you encounter any compile errors due to `rocksDB`, you might also need to install some dependencies with the following command: `apt-get install -y cmake pkg-config libssl-dev clang`.
-
-After checking all these prerequisites, you should be ready to use the `era-test-node`. Please keep in mind that `era-test-node` is still in its **alpha** stage, so some features might not be fully supported yet.
+###
 
 ### Installing and setting up `era-test-node`
+
+{% hint style="info" %}
+**Repository:** [**https://github.com/matter-labs/era-test-node**](https://github.com/matter-labs/era-test-node)
+
+**Learn to contribute:** [**CONTRIBUTING.md**](https://github.com/matter-labs/era-test-node/blob/main/.github/CONTRIBUTING.md)
+
+**Rust docs:** [**RUST Doc**](https://matter-labs.github.io/era-test-node/era\_test\_node/index.html)
+{% endhint %}
 
 Begin by installing `era-test-node` using the command:
 
@@ -196,6 +209,24 @@ EthToken System Contract                   Transfer(address,address,uint256), 0x
 0xc0b7c869ba924c05f64333d9caa21f4424eb4b30 Sync(uint112,uint112)
 0xc0b7c869ba924c05f64333d9caa21f4424eb4b30 Swap(address,uint256,uint256,uint256,uint256,address), 0x0000…ffe3, 0x0000…e23d
 EthToken System Contract                   Transfer(address,address,uint256), 0x0000…8001, 0x0000…e23d
+```
+
+You can use the following options to get more granular information during transaction processing:
+
+* `--show-storage-logs <SHOW_STORAGE_LOGS>`: Show storage log information.\
+  \[default: none]\
+  \[possible values: none, read, write, all]
+* `--show-vm-details <SHOW_VM_DETAILS>`: Show VM details information.\
+  \[default: none]\
+  \[possible values: none, all]
+* `--show-gas-details <SHOW_GAS_DETAILS>`: Show Gas details information.\
+  \[default: none]\
+  \[possible values: none, all]
+
+Example:
+
+```
+era_test_node --show-storage-logs=all --show-vm-details=all --show-gas-details=all run
 ```
 
 ### Sending network calls

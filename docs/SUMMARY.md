@@ -41,7 +41,7 @@
 
 ## 🏗 Build
 
-* [Getting Started](build/getting-started.md)
+* [Getting Started](broken-reference)
 * [Contract Development](build/contract-development/)
   * [Account Abstraction](build/contract-development/account-abstraction/)
     * [Social Login / Recovery](build/contract-development/account-abstraction/social-login-recovery.md)
@@ -91,7 +91,7 @@
 
 * [Getting Started](test-and-debug/getting-started.md)
 * [Dockerized L1 - L2 Nodes](test-and-debug/dockerized-l1-l2-nodes.md)
-* [Era Test Node](test-and-debug/era-test-node.md)
+* [Era Test Node](test-and-debug/era-test-node/)
 * [Hardhat](test-and-debug/hardhat.md)
 * [Foundry](test-and-debug/foundry.md)
 * [Continuous Integration](test-and-debug/continuous-integration.md)
@@ -110,7 +110,7 @@
   * [Bridging Usage Guide](tooling/bridging/bridging-usage-guide.md)
 * [Block Explorers](tooling/block-explorers/)
   * [API Reference](tooling/block-explorers/api-reference.md)
-  * [Contract Verification](tooling/block-explorers/contract-verification.md)
+  * [Contract Verification](broken-reference)
 * [Cross Chain](tooling/cross-chain/)
   * [LayerZero](tooling/cross-chain/layerzero.md)
 * [Oracles](tooling/oracles/)
@@ -120,13 +120,13 @@
   * [Pyth](tooling/oracles/pyth.md)
 * [Data Indexers](tooling/data-indexers/)
   * [The Graph](tooling/data-indexers/the-graph.md)
-  * [Covalent](tooling/data-indexers/covalent.md)
-  * [Flair](tooling/data-indexers/flair.md)
+  * [Covalent](broken-reference)
+  * [Flair](broken-reference)
 * [IDE](tooling/ide.md)
   * [Atlas](broken-reference)
 * [Monitoring](tooling/monitoring/)
   * [Dune Analytics](tooling/monitoring/dune-analytics.md)
-  * [Zetta Blocks](tooling/monitoring/zetta-blocks.md)
+  * [Zetta Blocks](broken-reference)
 * [Node Providers](tooling/node-providers.md)
 
 ## ⚙ Infrastructure
