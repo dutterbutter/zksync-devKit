@@ -12,9 +12,13 @@ Welcome to the Analytics page, a comprehensive hub dedicated to interacting with
 
 [The Graph](https://thegraph.com/) is a decentralized protocol for indexing and querying blockchain data. The Graph makes it possible to query data that is difficult to query directly. Use The Graph network today to index protocol data on zkSync!
 
+### SubQuery Network
+
+[SubQuery](https://subquery.network/) is a fast, flexible, and reliable open-source data indexer that provides you with custom APIs for your web3 project across all of our supported chains.
+
 ### Covalent
 
-Covalent provides the industry-leading Unified API bringing visibility to billions of Web3 data points. Developers use Covalent to build exciting multi-chain applications like crypto wallets, NFT galleries, and investor dashboard tools utilizing data. Checkout how Covalent is supporting zkSync Era.
+[Covalent](https://www.covalenthq.com/) provides the industry-leading Unified API bringing visibility to billions of Web3 data points. Developers use Covalent to build exciting multi-chain applications like crypto wallets, NFT galleries, and investor dashboard tools utilizing data. Checkout how Covalent is supporting zkSync Era.
 
 ### Flair
 
@@ -24,6 +28,10 @@ Covalent provides the industry-leading Unified API bringing visibility to billio
 
 {% content-ref url="the-graph.md" %}
 [the-graph.md](the-graph.md)
+{% endcontent-ref %}
+
+{% content-ref url="subquery.md" %}
+[subquery.md](subquery.md)
 {% endcontent-ref %}
 
 ### **Contribute**

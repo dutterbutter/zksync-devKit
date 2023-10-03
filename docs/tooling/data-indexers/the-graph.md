@@ -6,7 +6,7 @@ description: Learn to use TheGraph to query zkSync chain data in real-time.
 
 ### Introduction
 
-In this tutorial, you will learn how to deploy a subgraph that tracks a specific address on zkSync Era mainnet. Deploying graphs is a great way to query data from network historically and in real-time.
+In this guide, you will learn how to deploy a subgraph that tracks a specific address on zkSync Era mainnet. Deploying graphs is a great way to query data from network historically and in real-time.
 
 [The Graph](https://thegraph.com/) is a decentralized protocol for indexing and querying data from blockchains. The Graph serves queries over data that is easily stored, decentralized, and secured by the blockchain. You will learn how to deploy a subgraph that tracks a specific address on zkSync Era mainnet.
 

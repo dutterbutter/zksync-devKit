@@ -29,12 +29,6 @@ yarn add global zksync-cli@latest
 npm install -g zksync-cli@latest
 ```
 {% endtab %}
-
-{% tab title="npx" %}
-```bash
-npx zksync-cli@latest [COMMAND]
-```
-{% endtab %}
 {% endtabs %}
 
 ## Usage
