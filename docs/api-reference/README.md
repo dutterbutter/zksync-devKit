@@ -1,8 +1,4 @@
----
-description: Getting started with zkSync Era API's.
----
-
-# Getting Started
+# 🌐 API REFERENCE
 
 Welcome to the zkSync Era API reference documentation! This page provides you with a high-level overview of our API capabilities and essential information.
 

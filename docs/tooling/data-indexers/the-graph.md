@@ -30,11 +30,11 @@ A subgraph extracts data from a blockchain, processing it and storing it so that
 
 Visit [https://thegraph.com/studio/](https://thegraph.com/studio/), connect your wallet. Next, click the button to create a new subgraph:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-09-25 at 4.34.14 PM.png" alt="create-new-subgraph-zksync" width="332"><figcaption><p><a href="https://thegraph.com/studio/">https://thegraph.com/studio/</a> create subgraph</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-09-25 at 4.34.14 PM.png" alt="create-new-subgraph-zksync" width="332"><figcaption><p><a href="https://thegraph.com/studio/">https://thegraph.com/studio/</a> create subgraph</p></figcaption></figure>
 
 Enter the name of the subgraph, and select the zkSync Era as the network:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-09-25 at 4.35.31 PM.png" alt="" width="338"><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-09-25 at 4.35.31 PM.png" alt="" width="338"><figcaption></figcaption></figure>
 
 Install the [`@graphprotocol/graph-cli`](https://www.npmjs.com/package/@graphprotocol/graph-cli)`:`
 
@@ -531,13 +531,13 @@ Begin initializing the project with the following item options:
 * Indicate `true` to indexing events as entities&#x20;
 * Approve the next steps and skip adding another contract
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-09-25 at 4.57.45 PM.png" alt="" width="537"><figcaption><p>Example output from The Graph cli</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-09-25 at 4.57.45 PM.png" alt="" width="537"><figcaption><p>Example output from The Graph cli</p></figcaption></figure>
 
 ### Step 4 — Authenticate and Deploy the Subgraph
 
 In order to authenticate and deploy the generated subgraph, copy the deploy key studio account:
 
-<figure><img src="../../.gitbook/assets/deploy.png" alt="" width="375"><figcaption><p>Copy deploy key from The Graph studio</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/deploy.png" alt="" width="375"><figcaption><p>Copy deploy key from The Graph studio</p></figcaption></figure>
 
 Run auth command:
 
@@ -584,7 +584,7 @@ Please, make sure that local folder name matches name of the subgraph studio
 
 Visit the [studio](https://thegraph.com/studio/), select the **Playground** tab, and run the pre-loaded query:
 
-<figure><img src="../../.gitbook/assets/query.png" alt=""><figcaption><p>Running a query on our subgraph</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/query.png" alt=""><figcaption><p>Running a query on our subgraph</p></figcaption></figure>
 
 To write a custom query, for example, to query the `approvals` table for a specific `owner` address:
 
