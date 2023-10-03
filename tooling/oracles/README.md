@@ -10,7 +10,7 @@ Welcome to the Oracles page, a comprehensive hub dedicated to interacting with o
 
 ### API3
 
-API3 empowers smart contracts with its data feeds, termed [dAPIs➚](https://docs.api3.org/guides/dapis/subscribing-self-funded-dapis/). These dAPIs, sourced from first-party oracles, constantly relay signed, updated on-chain data. These feeds are available for zkSync Era. Check out the usage guide below to get started today.
+[API3](https://api3.org/) empowers smart contracts with its data feeds, termed [dAPIs➚](https://docs.api3.org/guides/dapis/subscribing-self-funded-dapis/). These dAPIs, sourced from first-party oracles, constantly relay signed, updated on-chain data. These feeds are available for zkSync Era. Check out the usage guide below to get started today.
 
 ### DIA
 
@@ -36,6 +36,10 @@ API3 empowers smart contracts with its data feeds, termed [dAPIs➚](https://doc
 
 {% content-ref url="redstone.md" %}
 [redstone.md](redstone.md)
+{% endcontent-ref %}
+
+{% content-ref url="pyth.md" %}
+[pyth.md](pyth.md)
 {% endcontent-ref %}
 
 ### Contribute
