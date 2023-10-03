@@ -1,0 +1,5 @@
+.gitbook.yaml
+
+structure:
+  readme: ./home/README.md
+  summary: SUMMARY.md

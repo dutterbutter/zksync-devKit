@@ -1,62 +1,57 @@
-# 👋 Welcome zkSync Devs
+# zkSync Developer Guide
 
-**Developer docs roadmap:**
+Welcome to zkSync developer guide! Here you will find examples, usage guides, helpful tips, and a complete overview of zkSync development landscape.
 
-**SDKs**
+## 🚀 Getting Started
 
-* [ ] Port over and improve documentation for each SDK (when ethersv6 ready)
-* [ ] Add hosted code usage examples for each JS sdk operation
-* [ ] Ensure structure consistency throughout SDK documentation&#x20;
+These instructions will help you get a copy of the project up and running on your local machine for development and contribution purposes.
 
-**API reference**
+### Clone the Repository
 
-* [ ] Provide documentation for each Ethereum JSON-RPC API endpoint&#x20;
-* [x] Provide documentation for each ZKs JSON-RPC API endpoint&#x20;
-* [x] Provide documentation for each supported Debug JSON-RPC API endpoint&#x20;
-* [ ] Provide documentation for each supported PubSub JSON-RPC API endpoint&#x20;
+```bash
+git clone git@github.com:dutterbutter/zksync-developer-pulse.git
+cd zksync-developer-pulse
+```
 
-**Build**
+## 📝 Contributing
 
-* [ ] Overview page&#x20;
-* [ ] Account Abstraction examples and guide
-* [ ] **(In-progress)** Paymaster examples and guide
-* [ ] **(In-progress)** Port over and improve hardhat plugin documentation&#x20;
-* [ ] Provide advanced contract guides (e.g. upgradability, create2)
-* [ ] Provide usage examples for making use of wagmi + zksync&#x20;
-* [ ] Provide usage examples for making use of web3-react + zksync&#x20;
-* [ ] Provide usage examples for making use of useDapp + zksync&#x20;
-* [ ] Provide usage examples for making use of viem + zkSync&#x20;
-* [ ] Add community projects to Show and Tell
+We welcome contributions from the community! Please read through our [Contribution Guidelines](CONTRIBUTING.md) before making a pull request.
 
-**Test & Debug**
+### Making Changes
 
-* [ ] **(In-progress)** Port over and reformat dockerized setup&#x20;
-* [ ] **(In-progress)** Port over and reformat era-test-node&#x20;
-* [ ] Add Hardhat testing examples (when ready)
-* [ ] Add Foundry testing examples (when ready)
-* [x] Add CI documentation for GH action&#x20;
-* [ ] Add various testing examples (e.g. time, impersonate, upgradability)&#x20;
+1. Fork the repository.
+2. Create a new branch for your changes.
+3. Make your changes.
+4. Submit a pull request with a clear description of your changes.
 
-**Tooling**
+## 📖 Documentation Structure
 
-* [ ] Overview page
-* [x] Port over and improve zksync-cli documentation
-* [ ] Add documentation for interacting and making use of portal&#x20;
-* [ ] Add documentation for interacting and making use of bridge&#x20;
-* [ ] **(In-progress)** Add documentation for interacting with public block explorer APIs  &#x20;
-* [ ] **(In-progress)** Add dev guides for interacting with oracle services&#x20;
-* [ ] **(In-progress)** Add dev guides for interacting with analytic services&#x20;
-* [ ] **(In-progress)** Add dev guides for interacting with ide services&#x20;
-* [ ] **(In-progress)** Add dev guides for interacting with node services&#x20;
-* [ ] **(In-progress)** Add dev guides for interacting with ecosystem primitives&#x20;
+The documentation is organized as follows:
 
-**Infrastructure**
+- `README.md`: Provides an overview of the project and setup instructions.
+- `SUMMARY.md`: Contains the table of contents for the GitBook.
+- `docs/`: This directory contains all the markdown files for the documentation.
 
-* [ ] **(In-progress)** Add relevant documentation for starting zkSync Era node&#x20;
-* [ ] **(In-progress)** Add relevant documentation for developing  / contributing to zkSync Era node
-* [x] Add relevant documentation for starting EN
+### Configurations
 
-**Support**&#x20;
+The `.gitbook.yaml` file at the root of the repository configures how GitBook processes the documentation. It specifies the root directory for the documentation and the paths to the `README.md` and `SUMMARY.md` files.
 
-* [x] Add community channels to connect with developers&#x20;
-* [ ] FAQ
+```yaml
+root: ./docs/
+
+structure:
+  readme: ./home/README.md
+  summary: SUMMARY.md
+
+```
+
+## 🔗 Useful Links
+
+- [Published Documentation](https://your-gitbook-url.gitbook.io/project/)
+- [GitBook Editor](https://app.gitbook.com/)
+- [Markdown Syntax Guide](https://www.markdownguide.org/extended-syntax/)
+- [Gitbook Documentation](https://docs.gitbook.com/)
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
