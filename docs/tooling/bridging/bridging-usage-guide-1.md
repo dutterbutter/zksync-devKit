@@ -2,17 +2,17 @@
 description: Bridge assets programmatically with default L1 and L2 bridges.
 ---
 
-# Deposit ETH to L2
+# Deposit ERC-20 to L2
 
 ### Introduction
 
-Depositing assets from L1 to L2 is a fundamental step to interact with zkSync. This guide demonstrates how to deposit ETH using the Javascript SDK, ensuring a smooth transition of assets to L2. In zkSync, assets deposited from L1 are locked in a smart contract and corresponding representations of these assets are minted on L2, enabling fast and cheap transactions.
+Depositing ERC-20 tokens from Layer 1 (L1) to Layer 2 (L2) is a vital step to engage with zkSync efficiently. This guide outlines the process of depositing ERC-20 tokens using the zkSync Javascript SDK, ensuring a streamlined transition of assets to L2. In zkSync, assets deposited from L1 are secured in a smart contract, while corresponding representations are created on L2, paving the way for swift and economical transactions.
 
 {% hint style="info" %}
 Use the **`zks_getBridgeContracts`** endpoint or **`getDefaultBridgeAddresses`** method to get the default bridge addresses.&#x20;
 {% endhint %}
 
-<table><thead><tr><th width="148">Bridge Type</th><th width="101">Network</th><th width="226">L1 Address</th><th>L2 Address</th></tr></thead><tbody><tr><td>ERC-20 Default Bridge</td><td>Mainnet</td><td><code>0x57891966931eb4bb6fb81430e6ce0a03aabde063</code></td><td><code>0x11f943b2c77b743ab90f4a0ae7d5a4e7fca3e102</code></td></tr><tr><td>WETH Bridge</td><td>Mainnet</td><td><code>0x0000000000000000000000000000000000000000</code></td><td><code>0x0000000000000000000000000000000000000000</code></td></tr><tr><td>ERC-20 Default Bridge</td><td>Testnet</td><td><code>0x927ddfcc55164a59e0f33918d13a2d559bc10ce7</code></td><td><code>0x00ff932a6d70e2b8f1eb4919e1e09c1923e7e57b</code></td></tr><tr><td>WETH Bridge</td><td>Testnet</td><td><code>0x0000000000000000000000000000000000000000</code></td><td><code>0x0000000000000000000000000000000000000000</code></td></tr></tbody></table>
+<table><thead><tr><th width="166">Bridge Type</th><th width="101">Network</th><th width="206">L1 Address</th><th>L2 Address</th></tr></thead><tbody><tr><td>ERC-20 Default Bridge</td><td>Mainnet</td><td><code>0x57891966931eb4bb6fb81430e6ce0a03aabde063</code></td><td><code>0x11f943b2c77b743ab90f4a0ae7d5a4e7fca3e102</code></td></tr><tr><td>WETH Bridge</td><td>Mainnet</td><td><code>0x0000000000000000000000000000000000000000</code></td><td><code>0x0000000000000000000000000000000000000000</code></td></tr><tr><td>ERC-20 Default Bridge</td><td>Testnet</td><td><code>0x927ddfcc55164a59e0f33918d13a2d559bc10ce7</code></td><td><code>0x00ff932a6d70e2b8f1eb4919e1e09c1923e7e57b</code></td></tr><tr><td>WETH Bridge</td><td>Testnet</td><td><code>0x0000000000000000000000000000000000000000</code></td><td><code>0x0000000000000000000000000000000000000000</code></td></tr></tbody></table>
 
 ### Prerequisites
 
@@ -40,7 +40,7 @@ Set up the node script:
 {% tabs %}
 {% tab title="yarn" %}
 ```bash
-mkdir deposit-scripts && cd deposit-scripts
+mkdir deposit-erc20-script && cd deposit-erc20-script
 yarn init -y 
 yarn add typescript ts-node ethers@^5.7.2 zksync-web3 dotenv
 ```
@@ -48,7 +48,7 @@ yarn add typescript ts-node ethers@^5.7.2 zksync-web3 dotenv
 
 {% tab title="npm" %}
 ```bash
-mkdir deposit-scripts && cd deposit-scripts
+mkdir deposit-erc20-script && cd deposit-erc20-script
 npm init -y 
 npm i typescript ts-node ethers@^5.7.2 zksync-web3 dotenv
 ```
@@ -64,11 +64,11 @@ L1_RPC_ENDPOINT=<RPC_URL>
 
 ### Step 3: Create the Deposit Script
 
-Create a new file `deposit.ts` and insert the below code:
+Create a new file `deposit-erc20.ts` and insert the below code:
 
 <details>
 
-<summary>Deposit script</summary>
+<summary>ERC-20 deposit script</summary>
 
 ```typescript
 import { Wallet, Provider, utils } from "zksync-web3";
@@ -82,8 +82,11 @@ dotenv.config();
 const L1_RPC_ENDPOINT = process.env.L1_RPC_ENDPOINT || "";  // or an RPC endpoint from Infura/Chainstack/QuickNode/etc.
 const L2_RPC_ENDPOINT = process.env.L2_RPC_ENDPOINT || "https://testnet.era.zksync.dev"; // or the zkSync Era mainnet 
 
-// Amount in ETH
-const AMOUNT = "0.00001";
+// ERC-20 Token (DIA) address in L1
+const TOKEN_ADDRESS = "0x5C221E77624690fff6dd741493D735a17716c26B";
+
+// Amount of tokens 
+const AMOUNT = "1";
 
 const WALLET_PRIV_KEY = process.env.WALLET_PRIV_KEY || "";
 
@@ -97,8 +100,12 @@ if (!L1_RPC_ENDPOINT) {
   );
 }
 
+if (!TOKEN_ADDRESS ) {
+  throw new Error("Missing address of the ERC-20 token in L1");
+}
+
 async function main() {
-  console.log(`Running script to deposit ETH in L2`);
+  console.log(`Running script to bridge ERC-20 to L2`);
 
   // Initialize the wallet.
   const l1provider = new Provider(L1_RPC_ENDPOINT);
@@ -108,11 +115,13 @@ async function main() {
   console.log(`L1 Balance is ${await wallet.getBalanceL1()}`);
   console.log(`L2 Balance is ${await wallet.getBalance()}`);
 
-  // Deposit ETH to L2
+  // Deposit token to L2
   const depositHandle = await wallet.deposit({
-    to: wallet.address,
-    token: utils.ETH_ADDRESS,
-    amount: ethers.utils.parseEther(AMOUNT),
+    to: wallet.address,  // can bridge to a different address in L2
+    token: TOKEN_ADDRESS,
+    amount: ethers.utils.parseEther(AMOUNT), // assumes ERC-20 has 18 decimals
+    // performs the ERC-20 approve action
+    approveERC20: true,
   });
   console.log(`Deposit transaction sent ${depositHandle.hash}`);
   console.log(`Please wait a few minutes for the deposit to be processed in L2`);
@@ -131,7 +140,7 @@ main().then().catch((error) => {
 Execute the script using the following command:
 
 ```sh
-npx ts-node deposit.ts
+npx ts-node deposit-erc20.ts
 ```
 
 ### Step 5: Verify the Deposit
@@ -139,13 +148,12 @@ npx ts-node deposit.ts
 Upon running the script, you should see output similar to below, indicating the deposit transaction has been sent and is being processed on L2:
 
 ```txt
-Running script to deposit ETH in L2
-L1 Balance is 6539874840163375070
-L2 Balance is 5712612651486983637
+Running script to bridge ERC-20 to L2
+L1 Balance is 19500035772482145
+L2 Balance is 2969807401250000000
 Deposit transaction sent 0xffb8e302430b0584e2e0104dd6295a03688c98ba7b6e9279b01dba65188cc444
-Please wait a few minutes for the deposit to be processed in L2
 ```
 
 ### Conclusion
 
-By following this guide, you have successfully deposited ETH from L1 to L2 using the zkSync Javascript SDK. This is a fundamental step towards interacting with the zkSync Layer 2 scaling solution.&#x20;
+By adhering to this guide, you have successfully deposited ERC-20 tokens from L1 to L2 using the zkSync Javascript SDK, making a significant stride towards interacting with the zkSync Layer 2 scaling solution.

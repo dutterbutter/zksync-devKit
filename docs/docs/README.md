@@ -35,7 +35,7 @@
 * [ ] Add Hardhat testing examples (when ready)
 * [ ] Add Foundry testing examples (when ready)
 * [x] Add CI documentation for GH action
-* [ ] Add various testing examples (e.g. time, impersonate, upgradability)
+* [ ] **(In-progress)** Add various testing examples (e.g. time, impersonate, upgradability)
 
 **Tooling**
 
