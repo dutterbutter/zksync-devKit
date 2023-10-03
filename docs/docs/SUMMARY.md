@@ -57,6 +57,7 @@
       * [hardhat-zksync-verify-vyper](../build/contract-development/hardhat-plugins/hardhat-zksync-verify-vyper.md)
       * [hardhat-zksync-verify](../build/contract-development/hardhat-plugins/hardhat-zksync-verify.md)
       * [hardhat-zksync-vyper](../build/contract-development/hardhat-plugins/hardhat-zksync-vyper.md)
+      * [hardhat-zksync-node](../build/contract-development/hardhat-plugins/hardhat-zksync-node.md)
     * [Advanced](../build/contract-development/advanced/README.md)
       * [Batch Transactions](../build/contract-development/advanced/batch-transactions.md)
       * [Upgradable Contracts](../build/contract-development/advanced/upgradable-contracts.md)
