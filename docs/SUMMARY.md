@@ -89,7 +89,7 @@
 
 ## 🧪 Test & Debug
 
-* [Getting Started](test-and-debug/getting-started.md)
+* [Getting Started](broken-reference)
 * [Dockerized L1 - L2 Nodes](test-and-debug/dockerized-l1-l2-nodes.md)
 * [Era Test Node](test-and-debug/era-test-node/)
 * [Hardhat](test-and-debug/hardhat.md)
@@ -97,7 +97,7 @@
 * [Continuous Integration](test-and-debug/continuous-integration.md)
 * [Testing Examples](test-and-debug/testing-examples/)
   * [Time Change](test-and-debug/testing-examples/time-change.md)
-  * [Upgradable contracts](test-and-debug/testing-examples/upgradable-contracts.md)
+  * [Upgradable contracts](broken-reference)
   * [Impersonate Account](test-and-debug/testing-examples/impersonate-account.md)
 
 ## 🛠 Tooling
