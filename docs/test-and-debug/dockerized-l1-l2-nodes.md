@@ -4,184 +4,88 @@ description: Guide to setup dockerized containers of L1 and L2 nodes.
 
 # Dockerized L1 - L2 Nodes
 
-Let's delve into the setup process for Dockerized local testing environment.
+Welcome to this step-by-step guide on establishing a local testing environment using Docker for zkSync development. With this guide, you can effortlessly emulate the zkSync environment on your local system, making it simpler to test and develop features. Let's get started!
 
-### Prerequisites
+**Prerequisites**:
 
-Make sure `Docker` and `docker-compose` are installed on your system. If not, follow the [installation guide](https://docs.docker.com/get-docker/). Familiarity with the zkSync Hardhat plugins is also recommended. If you're new to zkSync development with Hardhat, check out the getting started section here.
+1. **Docker and docker-compose**: Ensure that Docker and docker-compose are installed on your machine. If you haven't already installed them, follow the installation [guide](https://docs.docker.com/get-docker/).
+2. **zkSync Hardhat plugins**: A foundational understanding of the zkSync Hardhat plugins will be beneficial. New to zkSync development with Hardhat? Explore the getting started section.
 
-#### Setting up the testing environment
+### **Setting Up the Testing Environment**:
 
-To clone the dockerized project, use the following command:
+Clone the dockerized zkSync project repository to your local machine:
 
 ```bash
 git clone https://github.com/matter-labs/local-setup.git
 ```
 
-#### Starting the local node
+#### **Starting the Local Node**:
 
-To launch the zkSync Era locally, run the `start.sh` script:
+Navigate to the cloned directory:
 
-```
+```bash
 cd local-setup
+```
+
+Launch the zkSync Era node locally using the `start.sh` script:
+
+```bash
 ./start.sh
 ```
 
-This command initiates three docker containers:
+This script spins up three essential docker containers:
 
-* Postgres: The database for zkSync.
-* Local Geth node: The L1 for zkSync.
-* The zkSync node itself.
+1. **Postgres**: The database supporting zkSync.
+2. **Local Geth node**: Acts as the Layer 1 (L1) for zkSync.
+3. **zkSync node**: The core component.
 
 {% hint style="info" %}
-The first `start.sh` script execution should go uninterrupted. If the bootstrapping process halts unexpectedly, reset the local zkSync state and try again. The process can take up to 10 minutes to start (only the first time!)
+The first execution of the `start.sh` script should proceed without interruptions. If it halts unexpectedly, you might need to reset the local zkSync state and retry. The initialization might take up to 10 minutes initially.
 {% endhint %}
 
-#### Network details
+### **Understanding Network Details**:
 
-By default, the HTTP JSON-RPC API is served via port `3050`, while the WebSocket (WS) API is accessed through port `3051`.
+* **HTTP JSON-RPC API**: Accessible via port 3050.
+*   **WebSocket (WS) API**: Accessible through port 3051.
 
-* **L1 RPC:** `http://localhost:8545`
-* **L2 RPC:** `http://localhost:3050`
-* **WS API** `http://localhost:3051`
-* **Network Id:** 270
+    Default endpoints:
 
-#### Resetting the zkSync state
+    * **L1 RPC**: http://localhost:8545
+    * **L2 RPC**: http://localhost:3050
+    * **WS API**: http://localhost:3051
 
-To reset the zkSync state, run the `./clear.sh` script:
+    **Network Id**: 270
 
-```
+### **Resetting the zkSync State**:
+
+If you need to revert the zkSync state to its initial configuration, execute the `clear.sh` script:
+
+```bash
 ./clear.sh
 ```
 
-In case of a "permission denied" error, execute it with root privileges:
+In the event of a "permission denied" error, run the script with root access:
 
-```
+```bash
 sudo ./clear.sh
 ```
 
-#### Working with rich wallets
+#### **Leveraging Rich Wallets**:
 
-The local zkSync setup includes "rich" wallets preloaded with substantial amounts of ETH on both L1 and L2. You can find a complete list of the accounts' addresses along with the corresponding private keys [here](https://github.com/matter-labs/local-setup/blob/main/rich-wallets.json).
+The local zkSync setup generously equips some wallets with ample amounts of ETH on both L1 and L2, making testing easier. Access the list of preloaded accounts to obtain the addresses and corresponding private keys [here](https://github.com/matter-labs/local-setup/blob/main/rich-wallets.json).
 
-#### Employing a custom database or Ethereum node
+### **Custom Configurations (Advanced)**:
 
-To use a custom Postgres database or Layer 1 node, modify the environment parameters in the docker-compose file:
+To operate with a custom Postgres database or a distinct Layer 1 node, you'll need to adjust environment variables within the `docker-compose` file:
 
-```yml
+```yaml
 environment:
   - DATABASE_URL=postgres://postgres@postgres/zksync_local
   - ETH_CLIENT_WEB3_URL=http://geth:8545
 ```
 
-`DATABASE_URL` represents the URL to the Postgres database, and `ETH_CLIENT_WEB3_URL` refers to the URL to the HTTP JSON-RPC interface of the L1 node.
+Here, `DATABASE_URL` is the connection URL to the Postgres database, and `ETH_CLIENT_WEB3_URL` is the endpoint URL for the HTTP JSON-RPC interface of the L1 node.
 
-### Writing and running tests locally
+### Conclusion
 
-Next, we'll explore how to write and execute tests locally. We'll use `mocha` and `chai` for testing.
-
-#### Project configuration
-
-1. Start by creating a new Hardhat project. If you need guidance, follow the getting started guide.
-2. To incorporate the test libraries, execute:
-
-```
-yarn add -D mocha chai @types/mocha @types/chai
-```
-
-3. Add the following lines to your `package.json` in the root folder:
-
-```json
-"scripts": {
-    "test": "NODE_ENV=test hardhat test"
-}
-```
-
-This script makes it possible to run tests in a Hardhat environment with the `NODE_ENV` env variable set as `test`.
-
-#### Configuring tests
-
-4. Adjust `hardhat.config.ts` to use the local node for testing:
-
-```typescript
-import "@matterlabs/hardhat-zksync-deploy";
-import "@matterlabs/hardhat-zksync-solc";
-
-// dynamically changes endpoints for local tests
-const zkSyncTestnet =
-  process.env.NODE_ENV == "test"
-    ? {
-        url: "http://localhost:3050",
-        ethNetwork: "http://localhost:8545",
-        zksync: true,
-      }
-    : {
-        url: "https://testnet.era.zksync.dev",
-        ethNetwork: "goerli",
-        zksync: true,
-      };
-
-module.exports = {
-  zksolc: {
-    version: "latest", // Uses latest available in https://github.com/matter-labs/zksolc-bin/
-    settings: {},
-  },
-  // defaults to zkSync network
-  defaultNetwork: "zkSyncTestnet",
-  networks: {
-    hardhat: {
-      zksync: true,
-    },
-    // load test network details
-    zkSyncTestnet,
-  },
-  solidity: {
-    version: "0.8.17",
-  },
-};
-```
-
-#### Writing test scripts
-
-5. Now, create your first test! Construct a `test/main.test.ts` file with the following code:
-
-```ts
-import { expect } from "chai";
-import { Wallet, Provider, Contract } from "zksync-web3";
-import * as hre from "hardhat";
-import { Deployer } from "@matterlabs/hardhat-zksync-deploy";
-
-const RICH_WALLET_PK = "<RICH_WALLET_PK>";
-
-async function deployGreeter(deployer: Deployer): Promise<Contract> {
-  const artifact = await deployer.loadArtifact("Greeter");
-  return await deployer.deploy(artifact, ["Hi"]);
-}
-
-describe("Greeter", function () {
-  it("Should return the new greeting once it's changed", async function () {
-    const provider = Provider.getDefaultProvider();
-
-    const wallet = new Wallet(RICH_WALLET_PK, provider);
-    const deployer = new Deployer(hre, wallet);
-
-    const greeter = await deployGreeter(deployer);
-
-    expect(await greeter.greet()).to.eq("Hi");
-
-    const setGreetingTx = await greeter.setGreeting("Hola, mundo!");
-    // wait until the transaction is mined
-    await setGreetingTx.wait();
-
-    expect(await greeter.greet()).to.equal("Hola, mundo!");
-  });
-});
-```
-
-Execute the test file with:
-
-```bash
-yarn test
-```
-
-Well done! You've successfully run your first local tests with zkSync Era.
+By now, you should have a fully operational zkSync local testing environment. Dive into testing and development with the assurance that you're operating within a controlled, emulated zkSync environment. Happy coding!

@@ -9,7 +9,7 @@ Before you get started, there are a few prerequisites to consider. Ensure that y
 
 After checking all these prerequisites, you should be ready to use the `era-test-node`. Please keep in mind that `era-test-node` is still in its **alpha** stage, so some features might not be fully supported yet.
 
-### Installing and setting up `era-test-node`
+### Quickstart
 
 {% hint style="info" %}
 **Repository:** [**https://github.com/matter-labs/era-test-node**](https://github.com/matter-labs/era-test-node)
