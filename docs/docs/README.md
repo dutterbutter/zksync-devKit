@@ -30,29 +30,29 @@
 
 **Test & Debug**
 
-* [ ] **(In-progress)** Port over and reformat dockerized setup
-* [ ] **(In-progress)** Port over and reformat era-test-node
-* [ ] Add Hardhat testing examples (when ready)
-* [ ] Add Foundry testing examples (when ready)
+* [x] **(In-progress)** Port over and reformat dockerized setup
+* [x] **(In-progress)** Port over and reformat era-test-node
+* [x] Add Hardhat testing examples (when ready)
+* [x] Add Foundry testing examples (when ready)
 * [x] Add CI documentation for GH action
-* [ ] **(In-progress)** Add various testing examples (e.g. time, impersonate, upgradability)
+* [x] **(In-progress)** Add various testing examples (e.g. time, impersonate, upgradability)
 
 **Tooling**
 
 * [ ] Overview page
 * [x] Port over and improve zksync-cli documentation
-* [ ] Add documentation for interacting and making use of portal
-* [ ] Add documentation for interacting and making use of bridge
-* [ ] **(In-progress)** Add documentation for interacting with public block explorer APIs
-* [ ] **(In-progress)** Add dev guides for interacting with oracle services
+* [x] Add documentation for interacting and making use of portal
+* [x] Add documentation for interacting and making use of bridge
+* [x] **(In-progress)** Add documentation for interacting with public block explorer APIs
+* [x] Add dev guides for interacting with oracle services
 * [ ] **(In-progress)** Add dev guides for interacting with analytic services
-* [ ] **(In-progress)** Add dev guides for interacting with ide services
-* [ ] **(In-progress)** Add dev guides for interacting with node services
-* [ ] **(In-progress)** Add dev guides for interacting with ecosystem primitives
+* [x] &#x20;Add dev guides for interacting with ide services
+* [x] Add dev guides for interacting with node services
+* [ ] Add dev guides for interacting with ecosystem primitives
 
 **Infrastructure**
 
-* [ ] **(In-progress)** Add relevant documentation for starting zkSync Era node
+* [x] **(In-progress)** Add relevant documentation for starting zkSync Era node
 * [x] **(In-progress)** Add relevant documentation for developing / contributing to zkSync Era node
 * [x] Add relevant documentation for starting EN
 
