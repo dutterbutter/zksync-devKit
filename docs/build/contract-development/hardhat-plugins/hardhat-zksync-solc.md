@@ -2,10 +2,10 @@
 
 ### **What is this** `hardhat-zksync-solc`**?**
 
-The [`hardhat-zksync-solc`](https://www.npmjs.com/package/@matterlabs/hardhat-zksync-solc) plugin provides an interface for compiling Solidity smart contracts for deployment on the zkSync Era.
+The `hardhat-zksync-solc` plugin provides an interface for compiling Solidity smart contracts for deployment on zkSync Era.
 
 {% hint style="info" %}
-To gain an understanding **why** solc plugin is needed for zkSync compilation please refer to the documentation [here](https://era.zksync.io/docs/tools/compiler-toolchain/overview.html).
+To gain an understanding **why** solc plugin is needed for zkSync compilation please refer to the documentation here.
 {% endhint %}
 
 ### **Installation**
@@ -121,9 +121,9 @@ export default config;
 
 Configuration options and their details:
 
-* `version`: Specifies the zksolc compiler version. [View available versions](https://chat.openai.com/c/bbd6cd82-dec2-4f11-9e2d-3a2fd63b2f0b).
+* `version`: Specifies the zksolc compiler version. View available versions.
 * `compilerSource`: Choose between binary (default) and docker (deprecated).
-* `libraries`: Define any non-inlinable libraries used by your contract. [Learn more](https://chat.openai.com/c/bbd6cd82-dec2-4f11-9e2d-3a2fd63b2f0b).
+* `libraries`: Define any non-inlinable libraries used by your contract. Learn more.
 * `missingLibrariesPath`: Cache for missing libraries and dependencies.
 * `isSystem`: For contracts utilizing zkSync-specific Yul instructions.
 * `forceEvmla`: Use EVM legacy assembly if there are Yul IR issues.
@@ -174,7 +174,7 @@ yarn hardhat compile
 
 {% tab title="npm" %}
 ```bash
-npx hardhat compile
+npm hardhat compile
 ```
 {% endtab %}
 {% endtabs %}
@@ -184,9 +184,9 @@ Compiles all the smart contracts in the `contracts` directory and creates the `a
 ### **Troubleshooting**
 
 * **Issue**: Error from `@matterlabs/hardhat-zksync-solc`: Invalid zksolc compiler version.
-  * **Solution**: Check the version in `hardhat.config.ts` isn't below minimum. [Check versions](https://github.com/matter-labs/zksolc-bin/blob/main/version.json).
+  * **Solution**: Check the version in `hardhat.config.ts` isn't below minimum. Check versions.
 * **Issue**: Unexpected end of JSON input during compilation.
   * **Solution**:
     1. Update `@matterlabs/hardhat-zksync-solc`.
     2. Recompile.
-    3. If "Library not found" error appears,[ ](https://era.zksync.io/docs/tools/hardhat/compiling-libraries.html)[follow these instructions.](https://era.zksync.io/docs/tools/hardhat/compiling-libraries.html)
+    3. If "Library not found" error appears, follow these instructions.

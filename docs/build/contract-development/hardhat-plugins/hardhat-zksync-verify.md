@@ -2,7 +2,7 @@
 
 ### What is `hardhat-zksync-verify?`
 
-The [`hardhat-zksync-verify`](https://www.npmjs.com/package/@matterlabs/hardhat-zksync-verify) plugin is crafted to validate contracts on the zkSync Era network.
+The [`hardhat-zksync-verify`](https://www.npmjs.com/package/@matterlabs/hardhat-zksync-verify) plugin is crafted to validate contracts on zkSync Era network.
 
 {% hint style="info" %}
 To gain an understanding **why** vyper plugin is needed for zkSync compilation please refer to the documentation [here](https://era.zksync.io/docs/tools/compiler-toolchain/overview.html).
@@ -50,7 +50,7 @@ networks: {
 },
 ```
 
-**Network Properties Explained:**
+**Parameters:**
 
 * **`zkTestnet`**: Represents the zkSync Era network name. Set as default using the `defaultNetwork` property.
 * **`url`**: Required for all zkSync and Ethereum networks. Specifies the zkSync Era node's URL or the Ethereum node.

@@ -142,6 +142,8 @@ module.exports = someObject;
 
 To run with this config:
 
+{% code overflow="wrap" %}
 ```bash
 yarn hardhat deploy-zksync:libraries --private-key 0x7726827caac94a7f9e1b160f7ea819f172f7b6f9d2
 ```
+{% endcode %}

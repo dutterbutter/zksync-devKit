@@ -2,7 +2,7 @@
 
 ### **What is this** `hardhat-zksync-vyper`**?**
 
-The [`hardhat-zksync-vyper`](https://www.npmjs.com/package/@matterlabs/hardhat-zksync-vyper) plugin provides an interface for compiling Vyper smart contracts for deployment on the zkSync Era.
+The [`hardhat-zksync-vyper`](https://www.npmjs.com/package/@matterlabs/hardhat-zksync-vyper) plugin provides an interface for compiling Vyper smart contracts for deployment on zkSync Era.
 
 {% hint style="info" %}
 To gain an understanding **why** vyper plugin is needed for zkSync compilation please refer to the documentation [here](https://era.zksync.io/docs/tools/compiler-toolchain/overview.html).

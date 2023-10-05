@@ -80,6 +80,7 @@
     * [Gaming](../build/show-and-tell/gaming.md)
     * [Wallets](../build/show-and-tell/wallets.md)
 * [🧪 TEST & DEBUG](../test-and-debug/README.md)
+  * [Getting Started](../test-and-debug/getting-started.md)
   * [Dockerized L1 - L2 Nodes](../test-and-debug/dockerized-l1-l2-nodes.md)
   * [Era Test Node](../test-and-debug/era-test-node/README.md)
     * [Getting started](../test-and-debug/era-test-node/getting-started.md)

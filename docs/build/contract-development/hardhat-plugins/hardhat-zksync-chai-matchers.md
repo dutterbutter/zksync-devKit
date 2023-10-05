@@ -1,138 +1,94 @@
 # hardhat-zksync-chai-matchers
 
-`TODO: reformat and clean`
+### Overview
 
-## `hardhat-zksync-chai-matchers`
+This plugin augments the Chai assertion library with zkSync-specific matchers for smart contract testing. It builds on the `hardhat-chai-matchers` plugin, preserving the same behavior and interface.
 
-This plugin adds zkSync-specific capabilities to the [Chai](https://www.chaijs.com/) assertion library for testing smart contracts. It extends all the functionalities supported by the [hardhat-chai-matchers](https://hardhat.org/hardhat-chai-matchers/docs/overview) plugin, with the idea to preserve the same behavior and interface. Currently, it is used in combination with local testing environment.
+#### Changelog
 
-[Changelog](https://github.com/matter-labs/hardhat-zksync/blob/main/packages/hardhat-zksync-chai-matchers/CHANGELOG.md)
-
-::: info
-
-* Since responses from transactions that revert are highly dependent on the RPC implementation, all [Hardhat](https://hardhat.org/hardhat-chai-matchers/docs/overview) chai matchers that start with `revert` have been affected (without any changes to the chai matchers interface).
-* In addition, the `options` argument from `changeEtherBalance`/`changeEtherBalances` now includes the `overrides` field in order to support `zksync-web3` transfer methods with overrides. :::
+* Handling of transaction reverts depends on RPC implementation.
+* `changeEtherBalance`/`changeEtherBalances` now supports zksync-web3 transfer methods with `overrides`.
 
 ### Installation
 
-Add the latest version of this plugin to your project with the following command:
-
-::: code-tabs
-
-@tab:active yarn
-
 ```bash
+# With yarn
 yarn add -D @matterlabs/hardhat-zksync-chai-matchers @nomicfoundation/hardhat-chai-matchers chai @nomiclabs/hardhat-ethers ethers
-```
 
-@tab npm
-
-```bash
+# With npm
 npm i -D @matterlabs/hardhat-zksync-chai-matchers
 ```
 
-:::
+### Configuration
 
-#### Usage
-
-After installing it, add the plugin to your Hardhat config:
+In `hardhat.config.js`:
 
 ```javascript
 import "@matterlabs/hardhat-zksync-chai-matchers";
 ```
 
-Then you'll be able to use the matchers in your tests.
+### Matchers
 
-**changeEtherBalance**
+#### `changeEtherBalance`
 
-Assert that the ether balance of an address changed by a specific amount:
-
-```javascript
-await expect(() =>
-  sender.transfer({
-    to: receiver.address,
-    amount: 2000,
-  })
-).to.changeEtherBalance(sender.address, BigInt("-2000"));
-
-await expect(() =>
-  sender.sendTransaction({
-    to: receiver.address,
-    value: 1000,
-  })
-).to.changeEtherBalance(sender.address, "-1000");
-```
-
-This matchers include additional options argument with functionalities for including fee and overriding transaction:
+Checks if the ether balance of an address changed by a specific amount.
 
 ```javascript
-overrides = {
-  type: 2,
-  maxFeePerGas: 1 * gasPrice,
-  maxPriorityFeePerGas: 1 * gasPrice,
-};
-
-await expect(() =>
-  sender.transfer({
-    to: receiver.address,
-    amount: 500,
-    overrides,
-  })
-).to.changeEtherBalance(sender, -(txGasFees + 500), {
-  balanceChangeOptions: {
-    includeFee: true,
-  },
-  overrides,
-});
+await expect(() => sender.transfer({ to: receiver.address, amount: 2000 }))
+  .to.changeEtherBalance(sender.address, BigInt("-2000"));
 ```
 
-**changeTokenBalance**
+#### `changeTokenBalance`
 
-Assert that an ERC20 token balance of an address changed by a specific amount:
+Checks if an ERC20 token balance of an address changed by a specific amount.
 
 ```javascript
-await expect(sender.transfer({ to: receiver.address, amount: 5, token: token.address })).to.changeTokenBalance(token, sender, -5);
-
-await expect(token.transfer(receiver.address, 5)).to.not.changeTokenBalance(token, sender, 0);
+await expect(sender.transfer({ to: receiver.address, amount: 5, token: token.address }))
+  .to.changeTokenBalance(token, sender, -5);
 ```
 
-**reverted**
+#### `reverted`
 
-Assert that a transaction reverted for any reason:
+Checks if a transaction reverts.
 
 ```javascript
 await expect(contract.setAmount(100)).to.be.reverted;
 ```
 
-**revertedWithCustomError**
+#### `revertedWithCustomError`
 
-Assert that a transaction reverted with a specific custom error:
+Checks if a transaction reverted with a specific custom error.
 
 ```javascript
 await expect(contract.setAmount(100)).to.be.revertedWithCustomError(contract, "InvalidAmount");
 ```
 
-\
+#### Standard Chai Matchers
 
+*   `emit`
 
-And you can also use regular chai matchers like:
+    ```javascript
+    await expect(contract.setAmount(100)).to.emit(contract, "AmountUpdated");
+    ```
+*   `properAddress`
 
-**emit**
+    ```javascript
+    expect("0x36615Cf349d7F6344891B1e7CA7C72883F5dc049").to.be.properAddress;
+    ```
+*   `Comparisons of numbers`
 
-```javascript
-await expect(contract.setAmount(100)).to.emit(contract, "AmountUpdated");
-```
+    ```javascript
+    expect(await contract.getAmount()).to.equal(100);
+    ```
 
-**properAddress**
+For further reading, consult the In-depth documentation.
 
-```javascript
-expect("0x36615Cf349d7F6344891B1e7CA7C72883F5dc049").to.be.properAddress;
-```
-
-**Comparisons of numbers**
-
-```javascript
-expect(await contract.getAmount()).to.equal(100);
-```
-
-Checkout the advantages of using chai matchers [here](https://hardhat.org/hardhat-chai-matchers/docs/overview#why-would-i-want-to-use-it?). Since the list of all supported chai matchers is same as with [hardhat-chai-matchers](https://hardhat.org/hardhat-chai-matchers/docs/overview) plugin, check the [reference documentation](https://hardhat.org/hardhat-chai-matchers/docs/reference).
+| Matcher                   | Description                                            |
+| ------------------------- | ------------------------------------------------------ |
+| `changeEtherBalance`      | Checks ether balance change.                           |
+| `changeTokenBalance`      | Checks ERC20 token balance change.                     |
+| `reverted`                | Checks if a transaction reverts.                       |
+| `revertedWithCustomError` | Checks if a transaction reverts with a specific error. |
+| `emit`                    | Checks if an event was emitted.                        |
+| `properAddress`           | Validates if a string is a proper address.             |
+| `Comparisons of numbers`  | Compares numbers for equality, greater than, etc.      |

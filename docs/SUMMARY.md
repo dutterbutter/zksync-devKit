@@ -109,7 +109,7 @@
 * [Bridging](tooling/bridging/)
   * [Bridging Usage Guide](tooling/bridging/bridging-usage-guide.md)
 * [Block Explorers](tooling/block-explorers/)
-  * [API Reference](tooling/block-explorers/api-reference.md)
+  * [API Reference](broken-reference)
   * [Contract Verification](broken-reference)
 * [Cross Chain](tooling/cross-chain/)
   * [LayerZero](tooling/cross-chain/layerzero.md)
