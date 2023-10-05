@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Welcome](README.md)
+* [Welcome to zkSync DevKit](README.md)
 * [Table of contents](../SUMMARY.md)
 * [💻 SDKs](../sdks/README.md)
   * [Getting Started](../sdks/getting-started.md)
