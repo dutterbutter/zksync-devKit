@@ -53,7 +53,7 @@
     * [AllowList](build/contract-development/paymasters/allowlist.md)
     * [NFTGated](build/contract-development/paymasters/nftgated.md)
     * [ERC20Fixed](build/contract-development/paymasters/erc20fixed.md)
-    * [ERC20Gated](build/contract-development/paymasters/erc20gated.md)
+    * [ERC20Gated](broken-reference)
     * [TimeBased](build/contract-development/paymasters/timebased.md)
     * [ArbitraryData](build/contract-development/paymasters/arbitrarydata.md)
   * [Hardhat Plugins](build/contract-development/hardhat-plugins/)

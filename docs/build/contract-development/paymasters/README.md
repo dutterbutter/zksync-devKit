@@ -59,10 +59,6 @@ function approvalBased(
 [erc20fixed.md](erc20fixed.md)
 {% endcontent-ref %}
 
-{% content-ref url="erc20gated.md" %}
-[erc20gated.md](erc20gated.md)
-{% endcontent-ref %}
-
 {% content-ref url="timebased.md" %}
 [timebased.md](timebased.md)
 {% endcontent-ref %}

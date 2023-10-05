@@ -16,7 +16,7 @@ For a more in-depth understanding of the IPaymaster interface, please refer to t
 
 ### Step 1 — Understanding the TimeBasedPaymaster contract
 
-The `TimeBasedPaymaster` contract allows transactions within a specific timeframe to have the gas covered by the Paymaster.&#x20;
+The `TimeBasedPaymaster` contract allows transactions within a specific timeframe to have the gas covered.&#x20;
 
 Key components:
 
@@ -43,7 +43,7 @@ Choose `Hardhat + Solidity` to setup the project repository. The contract for th
 
 The intended objective of the `TimeBasedPaymaster` contract is to permit transactions only between a stipulated timeframe to cover the gas costs.&#x20;
 
-We need to include the validation logic in the `validateAndPayForPaymasterTransaction` function in the contract. Insert the following code under the `paymasterInputSelector == IPaymasterFlow.general.selector` condition check:
+Include the validation logic in the `validateAndPayForPaymasterTransaction` function in the contract. Insert the following code under the `paymasterInputSelector == IPaymasterFlow.general.selector` condition check:
 
 ```solidity
 uint256 startTime = (block.timestamp / 86400) * 86400 + 15 hours;
@@ -262,4 +262,4 @@ yarn hardhat test
 
 #### Conclusion
 
-The `TimeBasedPaymaster` contract bestows a novel capability on zkSync, allowing developers to limit transactions to a specific timeframe. This proves beneficial for scenarios demanding temporal restrictions. Further adaptability or protocol-specific validations can be incorporated as needed.
+The `TimeBasedPaymaster` contract bestows a novel capability on zkSync, allowing developers to limit transactions gas coverage to a specific timeframe. This proves beneficial for scenarios demanding temporal restrictions. Further adaptability or protocol-specific validations can be incorporated as needed.

@@ -1,109 +1,102 @@
 # hardhat-zksync-verify
 
-`TODO: reformat and clean`
+### What is `hardhat-zksync-verify?`
 
-## `hardhat-zksync-verify`
+The [`hardhat-zksync-verify`](https://www.npmjs.com/package/@matterlabs/hardhat-zksync-verify) plugin is crafted to validate contracts on the zkSync Era network.
 
-This plugin is used to verify contracts on the zkSync Era network.
+{% hint style="info" %}
+To gain an understanding **why** vyper plugin is needed for zkSync compilation please refer to the documentation [here](https://era.zksync.io/docs/tools/compiler-toolchain/overview.html).
+{% endhint %}
 
-[Changelog](https://github.com/matter-labs/hardhat-zksync/blob/main/packages/hardhat-zksync-verify/CHANGELOG.md)
+### Installation
 
-### Setup
+Ensure compatibility with the `@nomicfoundation/hardhat-verify` plugin. Install both:
 
-The [@matterlabs/hardhat-zksync-verify](https://www.npmjs.com/package/@matterlabs/hardhat-zksync-verify) plugin is used in conjunction with [@nomicfoundation/hardhat-verify](https://www.npmjs.com/package/@nomicfoundation/hardhat-verify) and it supports backward compatibility. To use it, install both plugins and then import `@matterlabs/hardhat-zksync-verify` in the `hardhat.config.ts` file.
-
-::: code-tabs
-
-@tab:active yarn
-
+{% tabs %}
+{% tab title="yarn" %}
 ```bash
 yarn add -D @matterlabs/hardhat-zksync-verify @nomicfoundation/hardhat-verify
 ```
+{% endtab %}
 
-@tab npm
-
+{% tab title="npm" %}
 ```bash
 npm i -D @matterlabs/hardhat-zksync-verify @nomicfoundation/hardhat-verify
 ```
+{% endtab %}
+{% endtabs %}
 
-:::
+### Configuration
 
-#### Configuration
+Import the plugin:
 
-Import the plugin in the `hardhat.config.ts` file:
-
-```javascript
+```typescript
 import "@matterlabs/hardhat-zksync-verify";
 ```
 
-Add the `verifyURL` property to the zkSync Era network in the `hardhat.config.ts` file as shown below:
+Add the `verifyURL` property to the `hardhat.config.ts` file:
 
 ```typescript
 networks: {
-    goerli: {
-      url: "https://goerli.infura.io/v3/<API_KEY>" // The Ethereum Web3 RPC URL (optional).
-    },
-    zkTestnet: {
-      url: "https://testnet.era.zksync.dev", // The testnet RPC URL of zkSync Era network.
-      ethNetwork: "goerli", // The Ethereum Web3 RPC URL, or the identifier of the network (e.g. `mainnet` or `goerli`)
-      zksync: true,
-      // Verification endpoint for Goerli
-      verifyURL: 'https://zksync2-testnet-explorer.zksync.dev/contract_verification'
-    }
+  goerli: {
+    url: "https://goerli.infura.io/v3/<API_KEY>" // The Ethereum Web3 RPC URL (optional).
+  },
+  zkTestnet: {
+    url: "https://testnet.era.zksync.dev", // zkSync Era network testnet URL.
+    ethNetwork: "goerli", 
+    zksync: true,
+    verifyURL: 'https://zksync2-testnet-explorer.zksync.dev/contract_verification' // Verification endpoint.
+  }
 },
-// defaultNetwork: "zkTestnet", // optional (if not set, use '--network zkTestnet')
 ```
 
-Additional network properties:
+**Network Properties Explained:**
 
-* `zkTestnet` is an arbitrary zkSync Era network name. You can select this as the default network using the `defaultNetwork` property.
-* `url` is a field with the URL of the zkSync Era node in case of the zkSync Era network (with `zksync` flag set to `true`), or the URL of the Ethereum node. This field is required for all zkSync Era and Ethereum networks used by this plugin.
-* `ethNetwork` is a field with the URL of the Ethereum node. You can also provide network name (e.g. `goerli`) as the value of this field. In this case, the plugin will either use the URL of the appropriate Ethereum network configuration (from the `networks` section), or the default `ethers` provider for the network if the configuration is not provided. This field is required for all zkSync networks used by this plugin.
-* `zksync` is a flag that indicates a zkSync Era network configuration. This field is set to `true` for all zkSync Era networks. If you want to run a `hardhat-verify` verification, this field needs to be set to `false`. If set to `true`, the verification process will try to run the verification process on the zkSync Era network.
-* `verifyURL` is a field that points to the verification endpoint for the specific zkSync network. This parameter is optional, and its default value is the testnet verification url.
+* **`zkTestnet`**: Represents the zkSync Era network name. Set as default using the `defaultNetwork` property.
+* **`url`**: Required for all zkSync and Ethereum networks. Specifies the zkSync Era node's URL or the Ethereum node.
+* **`ethNetwork`**: Provides the Ethereum node URL or its network name (like `goerli`). Essential for all zkSync networks.
+* **`zksync`**: A flag indicating the zkSync Era network. Set to `true` for zkSync networks.
+* **`verifyURL`**: Points to the verification endpoint for the zkSync network. This parameter is optional, and its default value is the testnet verification url.
   * Testnet: `https://zksync2-testnet-explorer.zksync.dev/contract_verification`
   * Mainnet: `https://zksync2-mainnet-explorer.zksync.io/contract_verification`
 
-If you want to verify a smart contract on the Ethereum in the same project, it is important to add `etherscan` field and API key in the `hardhat.config.ts` file:
+To verify a contract on Ethereum in the same project, add the `etherscan` field and your Etherscan API key:
 
 ```typescript
-
-networks: {
-    ...
-},
 etherscan: {
-  apiKey: //<Your API key for Etherscan>,
+  apiKey: //<Your Etherscan API key>,
 },
-
 ```
 
-#### Commands
+### Commands
 
-```sh
+#### Contract Verification
+
+Verify a contract on the designated network:
+
+```bash
 yarn hardhat verify --network <network> <contract address>
 ```
 
-This command verifies the contract on the given network with the given contract's address.\
-When executed in this manner, the verification task attempts to compare the compiled bytecode of all the contracts in your local environment with the deployed bytecode of the contract you are seeking to verify. If there is no match, it reports an error.
+To specify the contract from your setup for verification, use the `--contract` parameter:
 
-```sh
+```bash
 yarn hardhat verify --network <network> <contract address> --contract <fully qualified name>
 ```
 
-With the `--contract` parameter you can also specify which contract from your local setup you want to verify by specifying its Fully qualified name. Fully qualified name structure looks like this: "contracts/AContract.sol:TheContract"\
+#### **Constructor Arguments**
 
+For contracts deployed with constructor arguments, specify them when initiating the verify task:
 
-**Constructor arguments**
-
-If your contract was deployed with the specific constructor arguments, you need to specify them when running the verify task. For example:
-
-```sh
-yarn hardhat verify --network testnet 0x7cf08341524AAF292255F3ecD435f8EE1a910AbF "Hi there!"
+```bash
+yarn hardhat verify --network testnet <contract address> "Hi there!"
 ```
 
-If your constructor takes a complex argument list, you can write a separate javascript module to export it. For example, create an `arguments.js` file with the following structure:
+For complex arguments, export them from a separate JavaScript module, and integrate using `--constructor-args`:
 
-```typescript
+Example `arguments.js`:
+
+```javascript
 module.exports = [
   "a string argument",
   "0xabcdef",
@@ -115,38 +108,31 @@ module.exports = [
 ];
 ```
 
-Include it in the verify function call by adding a new parameter: `--constructor-args arguments.js`:
-
-```sh
-yarn hardhat verify --network testnet 0x7cf08341524AAF292288F3ecD435f8EE1a910AbF --constructor-args arguments.js
+{% code overflow="wrap" %}
+```bash
+yarn hardhat verify --network testnet <contract address> --constructor-args arguments.js
 ```
+{% endcode %}
 
-The hardhat-zksync-verify plugin also supports the verification with encoded constructor parameters.
+Encoded constructor parameters are also supported by the plugin but you need to specify a separate javascript module and export them as a _**non-array**_ parameter. It is important for encoded arguments to start with `0x` in order to be recognized by the plugin. For example:
 
-In order to use the encoded parameters, you need to specify a separate javascript module and export them as a _non-array_ parameter. It is important for encoded arguments to start with `0x` in order to be recognized by the plugin. For example:
-
-```typescript
+```javascript
 module.exports = "0x0x00087a676164696a61310000087a676164696a61310000000000000000000000008537b364a83f5c9a7ead381d3baf9cbb83769bf5";
 ```
 
-#### Verification status check
+#### Verification Status Check
 
-The verification process consists of two steps:
+Following a verification request, you can check its status using the verification ID:
 
-* A verification request is sent to confirm if the given parameters for your contract are correct.
-* Then, we check the verification status of that request. Both steps run when you run the `verify` task, but you will be able to see your specific verification request ID. You can then use this ID to check the status of your verification request without running the whole process from the beginning.
-
-The following command checks the status of the verification request for the specific verification ID:
-
-```sh
+```bash
 yarn hardhat verify-status --verification-id <your verification id>
 ```
 
-#### Verify smart contract programmatically
+#### Programmatic Verification
 
-If you need to run the verification task directly from your code, you can use the hardhat `verify:verify` task with the previously mentioned parameters with the difference in using `--address` parameter when specifying contarct's address.
+To verify directly from code:
 
-```typescript
+```javascript
 const verificationId = await hre.run("verify:verify", {
   address: contractAddress,
   contract: contractFullyQualifedName,
@@ -154,12 +140,9 @@ const verificationId = await hre.run("verify:verify", {
 });
 ```
 
-This task returns a verification id if the request was successfully sent.\
-You can use this id to check the status of your verification request as described in the section above.
+For encoded constructor arguments `constructorArguments` parameter should be a non-array value starting with `0x:`
 
-If you are using encoded constructor args, `constructorArguments` parameter should be a non-array value starting with `0x`.
-
-```typescript
+```javascript
 const verificationId = await hre.run("verify:verify", {
   address: contractAddress,
   contract: contractFullyQualifedName,
