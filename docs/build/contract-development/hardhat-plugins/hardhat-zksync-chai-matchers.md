@@ -4,20 +4,21 @@
 
 This plugin augments the Chai assertion library with zkSync-specific matchers for smart contract testing. It builds on the `hardhat-chai-matchers` plugin, preserving the same behavior and interface.
 
-#### Changelog
-
-* Handling of transaction reverts depends on RPC implementation.
-* `changeEtherBalance`/`changeEtherBalances` now supports zksync-web3 transfer methods with `overrides`.
-
 ### Installation
 
+{% tabs %}
+{% tab title="yarn" %}
 ```bash
-# With yarn
 yarn add -D @matterlabs/hardhat-zksync-chai-matchers @nomicfoundation/hardhat-chai-matchers chai @nomiclabs/hardhat-ethers ethers
+```
+{% endtab %}
 
-# With npm
+{% tab title="npm" %}
+```bash
 npm i -D @matterlabs/hardhat-zksync-chai-matchers
 ```
+{% endtab %}
+{% endtabs %}
 
 ### Configuration
 

@@ -6,21 +6,25 @@ The `hardhat-zksync-upgradable` plugin provides an interface for deploying and m
 
 #### Installation
 
+{% tabs %}
+{% tab title="yarn" %}
 ```bash
 yarn add -D @matterlabs/hardhat-zksync-upgradable @openzeppelin/contracts @openzeppelin/contracts-upgradeable
 ```
+{% endtab %}
 
-or
-
+{% tab title="npm" %}
 ```bash
 npm i -D @matterlabs/hardhat-zksync-upgradable @openzeppelin/contracts @openzeppelin/contracts-upgradeable
 ```
+{% endtab %}
+{% endtabs %}
 
 **Note on Version Incompatibility**
 
 The current version doesn't support the latest OpenZeppelin plugin versions. Future updates will address this.
 
-#### Configuration
+### Configuration
 
 In `hardhat.config.ts`:
 
@@ -35,7 +39,7 @@ const config: HardhatUserConfig = {
 export default config;
 ```
 
-#### Deploying Proxies
+### Deploying Proxies
 
 Supported proxy types:
 
@@ -57,7 +61,7 @@ Run:
 yarn hardhat run SCRIPT_FILE
 ```
 
-#### UUPS Proxies
+### UUPS Proxies
 
 For UUPS, use zksolc version >=1.3.9.
 
@@ -68,7 +72,7 @@ For UUPS, use zksolc version >=1.3.9.
 await hre.zkUpgrades.deployProxy(deployer.zkWallet, contract, [42], { initializer: "initialize" });
 ```
 
-#### Beacon Proxies
+### Beacon Proxies
 
 **Deploy Script Example: Beacon Proxy**
 
@@ -77,7 +81,7 @@ await hre.zkUpgrades.deployProxy(deployer.zkWallet, contract, [42], { initialize
 await hre.zkUpgrades.deployBeacon(deployer.zkWallet, contract);
 ```
 
-#### Upgrading Proxies
+### Upgrading Proxies
 
 **Upgrade Transparent Proxy**
 
@@ -100,7 +104,7 @@ const boxV2Implementation = await deployer.loadArtifact('BoxV2');
 await hre.zkUpgrades.upgradeBeacon(deployer.zkWallet, <BEACON_PROXY_ADDRESS>, boxV2Implementation);
 ```
 
-#### Verification
+### Verification
 
 Add `hardhat-zksync-verify` plugin before the upgradable plugin in `hardhat.config.ts`.
 

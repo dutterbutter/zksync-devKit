@@ -6,15 +6,19 @@
 
 ### Installation
 
-Install using either npm or yarn.
-
+{% tabs %}
+{% tab title="yarn" %}
 ```bash
-# yarn
 yarn add -D @matterlabs/hardhat-zksync-node
+```
+{% endtab %}
 
-# npm
+{% tab title="npm" %}
+```bash
 npm i -D @matterlabs/hardhat-zksync-node
 ```
+{% endtab %}
+{% endtabs %}
 
 ### Configuration
 

@@ -2,9 +2,11 @@
 
 ### Overview
 
+**zkSync Era** is a [ZK rollup](https://era.zksync.io/docs/reference/concepts/rollups.html#what-are-zk-rollups), a trustless protocol that uses cryptographic validity proofs to provide scalable and low-cost transactions on Ethereum. In zkSync Era, computation is performed off-chain and most data is stored off-chain as well. As all transactions are proven on the Ethereum mainchain, users enjoy the same security level as in Ethereum.
 
+zkSync Era is made to look and feel like Ethereum, but with lower fees. Just like on Ethereum, smart contracts are written in Solidity/Vyper and can be called using the same clients as the other EVM-compatible chains.
 
-
+You don't need to register a separate private key before usage; zkSync supports existing Ethereum wallets out of the box.
 
 ### Useful Addresses
 
