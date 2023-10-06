@@ -67,7 +67,6 @@
       * [web3-react](../build/dapp-development/frameworks/web3-react.md)
       * [useDApp](../build/dapp-development/frameworks/usedapp.md)
     * [Libraries](../build/dapp-development/libraries/README.md)
-      * [zksync-web3](../build/dapp-development/libraries/zksync-web3.md)
       * [ethers-v6](../build/dapp-development/libraries/ethers-v6.md)
       * [viem](../build/dapp-development/libraries/viem.md)
       * [web3.js](../build/dapp-development/libraries/web3.js.md)
