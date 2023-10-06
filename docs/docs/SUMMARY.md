@@ -36,6 +36,7 @@
   * [PubSub JSON-RPC API](../api-reference/pubsub-json-rpc-api.md)
 * [🏗 BUILD](../build/README.md)
   * [Contract Development](../build/contract-development/README.md)
+    * [Best Practices](../build/contract-development/best-practices.md)
     * [Account Abstraction](../build/contract-development/account-abstraction/README.md)
       * [Dead Mans Switch](../build/contract-development/account-abstraction/dead-mans-switch.md)
       * [Session Keys](../build/contract-development/account-abstraction/session-keys.md)

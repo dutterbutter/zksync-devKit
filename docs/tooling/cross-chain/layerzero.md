@@ -28,7 +28,7 @@ More details can be found [here](https://layerzero.gitbook.io/docs/faq/messaging
 Clone the GitHub repository containing the OmniCounter contract, and navigate to the repository directory:
 
 ```bash
-git clone git@github.com:LayerZero-Labs/solidity-examples.git
+git clone git@github.com:dutterbutter/zksync-layer0-example.git
 ```
 
 Install dependencies:
@@ -37,42 +37,76 @@ Install dependencies:
 yarn install
 ```
 
+**Update the Environment File**:
+
+* Modify the `.env-example` file with your private key.
+* Ensure your account has a sufficient balance for both chains being interacted with. For this guide, that is zkSync Testnet, and Optimism Testnet.
+
 ### Step 3 — Understanding OmniCounter
 
-OmniCounter is a smart contract that increments a counter on another chain via LayerZero messaging service. It utilizes `_lzSend()` within `incrementCounter()` to send messages, and `_nonblockingLzReceive()` to receive messages on the destination chain.
+OmniCounter is a smart contract that increments a counter on another chain via LayerZero messaging service.&#x20;
+
+It utilizes `_lzSend()` within `incrementCounter()` to send messages, and `_nonblockingLzReceive()` to receive messages on the destination chain.
 
 ### Step 4 — Deploy OmniCounter
 
-Deploy OmniCounter contract on at least two different chains. In this example, we'll use Binance Smart Chain Testnet (bsc-testnet) and Avalanche Fuji (fuji):
+Deploy OmniCounter contract on at least two different chains. In this example, we'll use zkSync Testnet and Optimism Testnet.&#x20;
+
+We will start with deploying on zkSync Testnet:
 
 ```bash
-bashCopy codenpx hardhat --network bsc-testnet deploy --tags OmniCounter
-npx hardhat --network fuji deploy --tags OmniCounter
+npx hardhat --network zksync-testnet deploy --tags OmniCounter
+```
+
+We should see the expected output:
+
+```
+[zksync-testnet] Endpoint address: 0x093D2CF57f764f09C3c2Ac58a42A2601B8C79281
+OmniCounter was deployed to 0x07C89fc22B959DbaE2bF3Bb5d0F1Ac94986588fd
+```
+
+**Note:** Copy the contract address somewhere safe, we will need it in the next step!
+
+Deploy on Optimism:
+
+```bash
+npx hardhat --network optimism-goerli deploy --tags OmniCounter
 ```
 
 ### Step 5 — Configure and Send Cross-Chain Message
 
+Open `setTrustedRemote.js` located in the `/tasks` directory. Replace `"YOUR-ZKSYNC-DEPLOYED-OMNICOUNTER-ADDRESS"` with the zkSync contract address.
+
+```javascript
+const ZKSYNC_OMNICOUNTER = "YOUR-ZKSYNC-DEPLOYED-OMNICOUNTER-ADDRESS";
+```
+
 Set the remote addresses to allow each contract to receive messages:
 
 ```bash
-bashCopy codenpx hardhat --network bsc-testnet setTrustedRemote --target-network fuji --contract OmniCounter
-npx hardhat --network fuji setTrustedRemote --target-network bsc-testnet --contract OmniCounter
+npx hardhat --network zksync-testnet setTrustedRemote --target-network optimism-goerli --contract OmniCounter
 ```
 
-Send a cross-chain message from bsc-testnet to fuji to increment the counter:
+Execute:
 
 ```bash
-bashCopy codenpx hardhat --network bsc-testnet incrementCounter --target-network fuji
+npx hardhat --network optimism-goerli setTrustedRemote --target-network zksync-testnet --contract OmniCounter
 ```
 
-To watch the counter increment in real-time, use the following command in a separate terminal:
+Time to send a cross-chain message from `optimism-goerli` to `zksync-testnet`:
 
 ```bash
-bashCopy codenpx hardhat --network fuji ocPoll
+npx hardhat --network optimism-goerli incrementCounter --target-network zksync-testnet
+```
+
+Expected output:
+
+```
+fees[0] (wei): 1289224800000000 / (eth): 0.0012892248
+✅ Message Sent [optimism-goerli] incrementCounter on destination OmniCounter @ [10165]
+tx: 0x6efca38d68bd11aae030c2b02d0dd8ae93eb32cba04152bb541309a909a0c894
 ```
 
 ### Conclusion
 
 You have now set up and demonstrated cross-chain messaging using LayerZero with the OmniCounter contract. This simplistic example serves as a gateway to understand and explore the potential of LayerZero messaging service in building interoperable blockchain applications.
-
-&#x20;
