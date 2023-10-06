@@ -2,8 +2,6 @@
 
 In testing and development, the need sometimes arises to impersonate or act on behalf of another account without actually knowing its private key. Hardhat provides methods to facilitate this. Below is an example that demonstrates the usage of these methods.
 
-**Test Suite: hardhat\_impersonateAccount & hardhat\_stopImpersonatingAccount**
-
 ### **Impersonating Account**
 
 **Test Description**:  Demonstrates the capability to transfer funds from an account without knowing its private key using account impersonation methods provided by Hardhat.

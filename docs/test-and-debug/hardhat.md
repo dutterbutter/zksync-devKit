@@ -88,7 +88,7 @@ describe('Greeter', function () {
 
 To run this test:
 
-```
+```bash
 yarn test
 ```
 
@@ -206,7 +206,7 @@ describe('Greeter', function () {
 
 To run this test:
 
-```
+```bash
 yarn test
 ```
 

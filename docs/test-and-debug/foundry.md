@@ -1,6 +1,6 @@
 # Foundry
 
-Support for testing with Foundry is currently in development and not yet available. We are actively working on it. You can stay updated on the progress by visiting our repository at:
+Support for testing with Foundry is currently in development and not yet available. We are actively working on it. You can stay updated on the progress by visiting the repository at:
 
 [https://github.com/matter-labs/foundry-zksync](https://github.com/matter-labs/foundry-zksync)
 

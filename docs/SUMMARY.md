@@ -104,7 +104,7 @@
 
 * [Getting Started](broken-reference)
 * [Network Faucets](tooling/network-faucets.md)
-* [zksync-cli](tooling/zksync-cli.md)
+* [zksync-cli](zksync-cli.md)
 * [Portal](broken-reference)
 * [Bridging](tooling/bridging/)
   * [Bridging Usage Guide](tooling/bridging/bridging-usage-guide.md)
@@ -117,7 +117,7 @@
   * [API3](tooling/oracles/api3.md)
   * [DIA](tooling/oracles/dia.md)
   * [Redstone](tooling/oracles/redstone.md)
-  * [Pyth](tooling/oracles/pyth.md)
+  * [Pyth](broken-reference)
 * [Data Indexers](tooling/data-indexers/)
   * [The Graph](tooling/data-indexers/the-graph.md)
   * [Covalent](broken-reference)
