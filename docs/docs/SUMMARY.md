@@ -117,7 +117,7 @@
     * [API3](../tooling/oracles/api3.md)
     * [DIA](../tooling/oracles/dia.md)
     * [Redstone](../tooling/oracles/redstone.md)
-* [zksync-cli](../zksync-cli.md)
+  * [zksync-cli](../tooling/zksync-cli.md)
 * [⚙ INFRASTRUCTURE](../infrastructure/README.md)
   * [External Node (EN)](../infrastructure/external-node/README.md)
     * [Component Breakdown](../infrastructure/external-node/component-breakdown.md)

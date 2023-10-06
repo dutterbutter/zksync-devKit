@@ -104,7 +104,7 @@
 
 * [Getting Started](broken-reference)
 * [Network Faucets](tooling/network-faucets.md)
-* [zksync-cli](zksync-cli.md)
+* [zksync-cli](tooling/zksync-cli.md)
 * [Portal](broken-reference)
 * [Bridging](tooling/bridging/)
   * [Bridging Usage Guide](tooling/bridging/bridging-usage-guide.md)
