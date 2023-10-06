@@ -1,7 +1,3 @@
----
-layout: landing
----
-
 # Community Channels
 
 Engage with our vibrant community and stay updated on the latest news, insights, and discussions through our diverse channels. Here's a quick overview:
