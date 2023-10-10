@@ -59,8 +59,9 @@ The `project.yaml` file serves as the entry point to your zkSync project, defini
 
 Start by:
 
-1. Import the contract ABI definition from any standard [ERC-20 contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/), save it as `erc20.abi.json` in the `/abis` directory.
-2. Update the `dataSources` section in `project.yaml` as shown below:
+Import the contract ABI definition from any standard [ERC-20 contract](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/), save it as `erc20.abi.json` in the `/abis` directory.
+
+Update the `dataSources` section in `project.yaml` as shown below:
 
 ```yaml
 dataSources:
@@ -94,7 +95,7 @@ dataSources:
 
 ### Step 4 — Update Your GraphQL Schema File
 
-1. Remove existing entities and update `schema.graphql` file to index block information, transfers, and approvals as shown below:
+Remove existing entities and update `schema.graphql` file to index block information, transfers, and approvals as shown below:
 
 ```graphql
 type Transfer @entity {
@@ -116,7 +117,7 @@ type Approval @entity {
 }
 ```
 
-2. Generate entity classes and ABI types:
+Generate entity classes and ABI types:
 
 {% tabs %}
 {% tab title="yarn" %}
@@ -132,7 +133,7 @@ npm run-script codegen
 {% endtab %}
 {% endtabs %}
 
-3. Import the generated types in your project:
+Import the generated types in your project:
 
 ```javascript
 import { Approval, Transfer } from "../types";
@@ -144,8 +145,9 @@ import {
 
 ### Step 5 — Add Mapping Functions
 
-1. Navigate to `src/mappings` directory, you'll find `handleLog` and `handleTransaction` functions.
-2. Update the functions to process and store the desired data as shown below:
+Navigate to `src/mappings` directory, you'll find `handleLog` and `handleTransaction` functions.
+
+Update the functions to process and store the desired data as shown below:
 
 ```typescript
 export async function handleLog(log: TransferLog): Promise<void> {
@@ -184,19 +186,19 @@ These functions process transaction and log data, extracting necessary informati
 
 ### Step 6 — Build, Run, and Query Your Project
 
-1. Build your project:
+Build your project:
 
 ```bash
 yarn build
 ```
 
-2. Run your project locally with Docker:
+Run your project locally with Docker:
 
 ```bash
 yarn start:docker
 ```
 
-3. Open your browser and head to `http://localhost:3000`. Explore the GraphQL playground and use the Docs tab to understand the available queries.
+Open your browser and head to `http://localhost:3000`. Explore the GraphQL playground and use the Docs tab to understand the available queries.
 
 Try the following query to understand how it works for your new SubQuery starter project:
 
