@@ -119,7 +119,7 @@
     * [Redstone](../tooling/oracles/redstone.md)
   * [zksync-cli](../tooling/zksync-cli.md)
   * [Wallets](../tooling/wallets.md)
-  * [NFT Marketplace](../tooling/nft-marketplace.md)
+  * [NFT Marketplaces](../tooling/nft-marketplaces.md)
 * [⚙ INFRASTRUCTURE](../infrastructure/README.md)
   * [External Node (EN)](../infrastructure/external-node/README.md)
     * [Component Breakdown](../infrastructure/external-node/component-breakdown.md)

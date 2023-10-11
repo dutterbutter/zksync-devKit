@@ -1,4 +1,8 @@
-# NFT Marketplace
+---
+description: Explore the world of NFTs on zkSync Era.
+---
+
+# NFT Marketplaces
 
 The following NFT marketplaces are specialized in facilitating the trade, creation, and management of NFTs. These platforms offer distinct features and benefits.
 
