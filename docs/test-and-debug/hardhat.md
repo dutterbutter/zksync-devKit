@@ -4,7 +4,7 @@
 
 In the intricate world of decentralized applications, the margin for error is remarkably narrow. A single mistake in a contract can have catastrophic implications. The immutable nature of blockchain technology makes it imperative for developers to ensure their contracts operate flawlessly. For those seeking an efficient method to test and refine their contracts, this guide showcases how to utilize Hardhat and `era_test_node` for all testing needs.
 
-### Step 1 - Understanding testing contracts using HardHat
+### Step 1 - Understanding contract testing using HardHat
 
 Writing automated tests when building smart contracts is of crucial importance.
 
