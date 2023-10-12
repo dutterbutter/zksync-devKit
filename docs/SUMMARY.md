@@ -82,10 +82,10 @@
     * [WalletConnect](build/dapp-development/wallets/walletconnect.md)
     * [RainbowKit](broken-reference)
     * [Web3-Onboard](broken-reference)
-* [Show and Tell](build/show-and-tell/)
-  * [DeFi](build/show-and-tell/defi.md)
-  * [Gaming](build/show-and-tell/gaming.md)
-  * [Wallets](build/show-and-tell/wallets.md)
+* [Show and Tell](broken-reference)
+  * [DeFi](broken-reference)
+  * [Gaming](broken-reference)
+  * [Wallets](broken-reference)
 
 ## 🧪 Test & Debug
 
