@@ -51,8 +51,8 @@ function approvalBased(
 [allowlist.md](allowlist.md)
 {% endcontent-ref %}
 
-{% content-ref url="nftgated.md" %}
-[nftgated.md](nftgated.md)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
 
 {% content-ref url="erc20fixed.md" %}
