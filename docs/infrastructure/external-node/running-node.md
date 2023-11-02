@@ -39,9 +39,9 @@ If you choose to run PostgreSQL as a standalone Docker image (not via Docker-com
 * Substitute `localhost` with `host.docker.internal` in your EN configuration. More details are available in the \[official documentation]\[host\_docker\_internal].
 {% endhint %}
 
-**2. Database Dump**:&#x20;
+**2. Database Dump**:
 
-Secure a database dump matching your environment. This can be restored with the command:&#x20;
+Secure a database dump matching your environment. This can be restored with the command:
 
 `pg_restore -O -C <DUMP_PATH> --dbname=<DB_URL>`.
 
@@ -60,7 +60,7 @@ Should you require Helm charts or other configuration options, they will be made
 TODO: add image
 
 {% hint style="warning" %}
-### First-Time Startup
+#### First-Time Startup
 
 On the maiden launch, the state present in PostgreSQL will mirror the dump you employed, but RocksDB (primarily the Merkle tree) will be devoid of any state. The EN needs to reconstruct the state within RocksDB and affirm consistency. Depending on your hardware, anticipate a state rebuild duration on the mainnet **exceeding 20 hours**.
 {% endhint %}

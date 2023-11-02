@@ -1,6 +1,6 @@
 # Estimate Gas
 
-### Estimation Methods&#x20;
+### Estimation Methods
 
 The estimation methods in the zkSync Era JS SDK provide a way to estimate the gas required for various types of transactions. These methods return a Promise that resolves to a BigNumber, representing the estimated gas cost in wei.
 
@@ -40,7 +40,7 @@ estimateGas(transaction: TransactionRequest): Promise<BigNumber>
 
 Returns a `Promise` that resolves to a `BigNumber` representing the estimated gas cost.
 
-#### Example Usage&#x20;
+#### Example Usage
 
 Here's how you can use `estimateGas` to estimate the gas for a deposit transaction:\`
 
@@ -98,14 +98,6 @@ web3.eth.estimate_gas({'to': '0xd3CdA913deB6f67967B99D67aCDFa1712C293601', 'from
 // Some code
 ```
 {% endtab %}
-
-{% tab title="Java" %}
-
-{% endtab %}
-
-{% tab title="Rust" %}
-
-{% endtab %}
 {% endtabs %}
 
 ### `estimateGasL1` Method
@@ -135,6 +127,7 @@ provider.estimateGasL1(transaction: <TransactionRequest>): Promise<BigNumber>
 | `value`      | `BigNumber` | The value being sent in the transaction    | `parseEther("1.0")`                                                                                                                    |
 | `customData` | `any`       | Custom data for the transaction (optional) | <pre class="language-typescript" data-overflow="wrap"><code class="lang-typescript">customData: { gasPerPubdataByte: 0 }
 </code></pre> |
+|              |             |                                            |                                                                                                                                        |
 
 #### Return Value
 
